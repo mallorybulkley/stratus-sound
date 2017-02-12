@@ -18,11 +18,11 @@ Bonus Features
 - [ ] Bonus: tags
 
 ## Design Docs
-[API Endpoints][docs/api-endpoints.md]
-[Component Hierarchy][docs/component-hierarchy.md]
-[Sample State][docs/sample-state.md]
-[Schema][docs/schema.md]
-[Wireframes][docs/wireframes.md]
+[API Endpoints](docs/api-endpoints.md)
+[Component Hierarchy](docs/component-hierarchy.md)
+[Sample State](docs/sample-state.md)
+[Schema](docs/schema.md)
+[Wireframes](docs/wireframes.md)
 
 ## Implementation Timeline
 ### 1: Backend setup and front-end user authentication (1 day)
