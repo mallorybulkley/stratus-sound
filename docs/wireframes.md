@@ -1,21 +1,33 @@
 # Wireframes
-[Wireframes folder][docs/wireframes]
+[Wireframes folder](./wireframes)
+
+Homepage
 
 ![homepage]
 
+Search
+
 ![search]
+
+Playbar
 
 ![playbar]
 
+Profile
+
 ![profile]
+
+Track
 
 ![track]
 
+New track upload
+
 ![upload]
 
-[homepage]: docs/wireframes/homepage.png
-[search]: docs/wireframes/search.png
-[playbar]: docs/wireframes/playbar.png
-[profile]: docs/wireframes/profile.png
-[track]: docs/wireframes/track.png
-[upload]: docs/wireframes/upload.png
+[homepage]: wireframes/homepage.png
+[search]: wireframes/search.png
+[playbar]: wireframes/playbar.png
+[profile]: wireframes/profile.png
+[track]: wireframes/track.png
+[upload]: wireframes/upload.png
