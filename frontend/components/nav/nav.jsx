@@ -13,11 +13,31 @@ const Greeting = (props) => {
     )
   }
 
+  // update Upload link later!
   return (
-    <div>
-      <Link to='/login'>Log In</Link>
-      <Link to='/signup'>Sign Up</Link>
-    </div>
+    <ul className="nav">
+      <li className="left logo">
+        Stratus Sound
+      </li>
+      <li className="left">
+        <a>Home</a>
+      </li>
+      <li>
+        <input className="search" type="text" placeholder="Search"/>
+      </li>
+      <li className="right">
+        <Link to='/login'>Sign In</Link>
+      </li>
+      <li>
+        or
+      </li>
+      <li className="right">
+        <Link to='/signup'>Create Account</Link>
+      </li>
+      <li>
+        <Link to='/'>Upload</Link>
+      </li>
+    </ul>
   );
 }
 

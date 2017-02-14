@@ -1,0 +1,41 @@
+.nav {
+  background-color: #333333;
+  color: #F2F2F2;
+  margin: 0;
+  display: flex;
+  font-size: 14px;
+  height: 46px;
+  justify-content: center;
+}
+
+.nav a {
+
+}
+
+.nav li {
+  padding: 12px;
+}
+
+.left {
+  border-right: 1px solid black;
+  text-align: center;
+}
+
+.search {
+  width: 575px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0px;
+}
+
+.left.logo {
+  width: 184px;
+  background: linear-gradient(#f70,#f30);
+  padding: 12px 0;
+}
+
+.right a {
+  padding: 5px 10px;
+  border: 1px solid #F2F2F2;
+  border-radius: 4px;
+}

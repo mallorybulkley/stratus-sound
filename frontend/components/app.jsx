@@ -1,10 +1,9 @@
 import React from 'react';
-import Greeting from './greeting/greeting';
+import Nav from './nav/nav';
 
 const App = ({ children }) => (
   <div>
-    <h1>Stratus Sound</h1>
-    <Greeting />
+    <Nav />
     { children }
   </div>
 );
