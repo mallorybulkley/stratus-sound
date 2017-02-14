@@ -5,15 +5,15 @@
   display: flex;
   font-size: 14px;
   height: 46px;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-.nav a {
-
+.nav ul {
+  width: 1200px;
 }
 
 .nav li {
-  padding: 12px;
+  padding: 15px 10px;
 }
 
 .left {
@@ -21,17 +21,28 @@
   text-align: center;
 }
 
-.search {
-  width: 575px;
-  height: 25px;
-  border-radius: 5px;
-  border: 0px;
+.left a {
+  padding: 20px;
 }
 
 .left.logo {
   width: 184px;
   background: linear-gradient(#f70,#f30);
-  padding: 12px 0;
+  padding: 15px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.orange {
+  background-color: #FF6500;
+}
+
+.search {
+  width: 575px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0px;
+  margin: -20px -5px;
 }
 
 .right a {
