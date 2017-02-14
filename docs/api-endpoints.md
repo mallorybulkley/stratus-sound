@@ -36,6 +36,6 @@
 * `POST /api/plays` - add play
 
 ### Comments
-* `GET /api/tracks/:id/comments` - get all comments for a track
-* `POST /api/tracks/:id/comments` - create comment
-* `DELETE /api/tracks/:id/comments/:id` - delete comment
+* `GET /api/comments` - get all comments for a track
+* `POST /api/comments` - create comment
+* `DELETE /api/comments/` - delete comment
