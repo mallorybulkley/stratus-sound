@@ -100,7 +100,7 @@ Path            | Component
 /signup         | AuthFormContainer
 /login          | AuthFormContainer
 /user/:id       | Profile
-/user/:id/edit  | EditProfileContainer
+/user/edit      | EditProfileContainer
 /upload         | TrackFormContainer
 /tracks/:id     | TrackContainer
 /tracks/:id/edit| TrackFormContainer
