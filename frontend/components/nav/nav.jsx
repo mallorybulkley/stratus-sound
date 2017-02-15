@@ -78,7 +78,7 @@ class Nav extends React.Component {
               <input id="search" type="text" placeholder="Search"/>
             </li>
 
-            <li>
+            <li className="right">
               <Link to="/">Upload</Link>
             </li>
 
@@ -86,7 +86,7 @@ class Nav extends React.Component {
               <Link>{this.props.currentUser.username}</Link>
             </li>
 
-            <li>
+            <li className="right">
               <Link onClick={this.props.logout}>Log Out</Link>
             </li>
 
