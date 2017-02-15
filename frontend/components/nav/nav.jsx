@@ -5,36 +5,15 @@ import Modal from 'react-modal';
 
 import { logout } from '../../actions/session_actions';
 import SessionFormContainer from '../session/session_form_container';
+import LeftNav from './left_nav';
+import Search from './search';
+import RightNavLoggedIn from './right_nav_logged_in';
+import RightNavLoggedOut from './right_nav_logged_out';
+import { modalStyle } from '../../util/modal_style.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   Modal.setAppElement(document.body);
 });
-
-const style = {
-  overlay : {
-    position          : 'fixed',
-    top               : 0,
-    left              : 0,
-    right             : 0,
-    bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
-  },
-  content : {
-    position                   : 'absolute',
-    top                        : '33%',
-    left                       : '33%',
-    right                      : '',
-    bottom                     : '',
-    border                     : '1px solid #ccc',
-    background                 : '#fffff',
-    overflow                   : 'auto',
-    WebkitOverflowScrolling    : 'touch',
-    borderRadius               : '4px',
-    outline                    : 'none',
-    padding                    : '20px'
-
-  }
-};
 
 class Nav extends React.Component {
   constructor (props) {
@@ -50,95 +29,72 @@ class Nav extends React.Component {
     this.setState({ modal: false, formType: "" });
   }
 
-  render () {
+  rightNav () {
     if (this.props.currentUser.username) {
       return (
-        <section className="nav">
-          <ul className="nav">
-            <li className="left logo">
-              <Link to="/">Stratus Sound</Link>
-            </li>
-
-            <li className="left">
-              <Link to="/">Stream</Link>
-            </li>
-
-            <li>
-              <input id="search" type="text" placeholder="Search"/>
-            </li>
-
-            <li className="right">
-              <Link to="/">Upload</Link>
-            </li>
-
-            <li>
-              <Link>{this.props.currentUser.username}</Link>
-            </li>
-
-            <li className="right">
-              <Link onClick={this.props.logout}>Log Out</Link>
-            </li>
-
-          </ul>
-
-          <Modal isOpen={this.state.modal}
-            onRequestClose={this.closeModal.bind(this)}
-            contentLabel="Modal"
-            style={style}>
-
-            <SessionFormContainer
-              closeModal={this.closeModal.bind(this)}
-              formType={this.state.formType} />
-          </Modal>
-        </section>
+        <RightNavLoggedIn
+          currentUser={this.props.currentUser}
+          logout={this.props.logout} />
+      );
+    } else {
+      return (
+        <RightNavLoggedOut openModal={this.openModal.bind(this)} />
       );
     }
+  }
 
+  render () {
     return (
       <section className="nav">
-        <ul className="nav">
-          <li className="left logo">
-            <Link to="/">Stratus Sound</Link>
-          </li>
-
-          <li className="left">
-            <Link to="/">Home</Link>
-          </li>
-
-          <li>
-            <input id="search" type="text" placeholder="Search"/>
-          </li>
-
-          <li className="right border">
-            <Link onClick={this.openModal.bind(this, "login")}>Sign In</Link>
-          </li>
-
-          <li>
-            or
-          </li>
-
-          <li className="right">
-            <Link onClick={this.openModal.bind(this, "signup")}
-              className="orange">Create Account</Link>
-          </li>
-
-          <li>
-            <Link to="/">Upload</Link>
-          </li>
+        <ul className="main-nav">
+        <LeftNav />
+        <Search />
+        { this.rightNav() }
         </ul>
 
         <Modal isOpen={this.state.modal}
           onRequestClose={this.closeModal.bind(this)}
           contentLabel="Modal"
-          style={style}>
+          style={modalStyle}>
 
           <SessionFormContainer
-            closeModal={this.closeModal}
+            closeModal={this.closeModal.bind(this)}
             formType={this.state.formType} />
         </Modal>
       </section>
     );
   }
+
+  //   return (
+  //     <section className="nav">
+  //       <ul className="nav">
+  //         <li className="left logo">
+  //           <Link to="/">Stratus Sound</Link>
+  //         </li>
+  //
+  //         <li className="left">
+  //           <Link to="/">Home</Link>
+  //         </li>
+  //
+  //         <li>
+  //           <input id="search" type="text" placeholder="Search"/>
+  //         </li>
+  //
+  //
+  //       </ul>
+  //
+  //       <Modal isOpen={this.state.modal}
+  //         onRequestClose={this.closeModal.bind(this)}
+  //         contentLabel="Modal"
+  //         style={style}>
+  //
+  //         <SessionFormContainer
+  //           closeModal={this.closeModal}
+  //           formType={this.state.formType} />
+  //       </Modal>
+  //     </section>
+  //   );
+  // }
 }
 
 const mapStateToProps = (state) => ({

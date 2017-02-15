@@ -2,14 +2,15 @@
   background-color: #333333;
   color: #F2F2F2;
   margin: 0 auto;
-  display: flex;
   font-size: 14px;
-  height: 46px;
-  justify-content: space-between;
 }
 
-.nav ul {
+.main-nav {
+  height: 46px;
   width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav li {
@@ -19,16 +20,16 @@
 .left {
   border-right: 1px solid black;
   text-align: center;
+  display: flex;
 }
 
 .left a {
   padding: 20px;
 }
 
-.left.logo {
+.logo {
   width: 184px;
   background: linear-gradient(#f70,#f30);
-  padding: 12px 0;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -39,12 +40,17 @@
 }
 
 #search {
-  width: 575px;
+  width: 545px;
   height: 25px;
   margin: -3px -5px;
   font-size: 14px;
   border: 0px;
 
+}
+
+ul.right {
+  display: flex;
+  align-items: center;
 }
 
 .right a {
