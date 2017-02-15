@@ -20,5 +20,9 @@ body, ul, li, a {
   color: inherit;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Overpass', sans-serif;
+}
+
+body {
+  background-color: #F2F2F2;
 }

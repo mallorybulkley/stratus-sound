@@ -4,7 +4,9 @@ import Nav from './nav/nav';
 const App = ({ children }) => (
   <div>
     <Nav />
-    { children }
+    <main className="main">
+      { children }
+    </main>
   </div>
 );
 

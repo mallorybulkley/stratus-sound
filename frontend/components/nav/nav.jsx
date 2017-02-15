@@ -10,7 +10,7 @@ const Greeting = (props) => {
         Hello, {props.currentUser.username}!
         <button onClick={props.logout}>Log Out</button>
       </div>
-    )
+    );
   }
 
   // update Upload link later!
@@ -18,10 +18,10 @@ const Greeting = (props) => {
     <section className="nav">
       <ul className="nav">
         <li className="left logo">
-          Stratus Sound
+          <Link to="/">Stratus Sound</Link>
         </li>
         <li className="left">
-          <a>Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <input className="search" type="text" placeholder="Search"/>
@@ -41,7 +41,7 @@ const Greeting = (props) => {
       </ul>
     </section>
   );
-}
+};
 
 const mapStateToProps = (state) => ({
   currentUser: state.session
