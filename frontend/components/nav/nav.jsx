@@ -50,17 +50,6 @@ class Nav extends React.Component {
     this.setState({ modal: false, formType: "" });
   }
 
-  loggedInNav () {
-    return (
-      <div>
-        Hello, {this.props.currentUser.username}!
-        <button onClick={this.props.logout}>Log Out</button>
-      </div>
-    );
-  }
-
-
-  // update Upload link later!
   render () {
     if (this.props.currentUser.username) {
       return (
@@ -71,7 +60,7 @@ class Nav extends React.Component {
             </li>
 
             <li className="left">
-              <Link to="/">Home</Link>
+              <Link to="/">Stream</Link>
             </li>
 
             <li>

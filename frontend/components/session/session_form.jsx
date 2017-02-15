@@ -9,16 +9,22 @@ const guestUser = {
 class SessionForm extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { username: "", password: "" };
+    this.state = { username: "", password: "", errors: [] };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
+  }
+
+  handleErrors (errors) {
+    this.setState({ errors: errors.responseJSON.errors });
   }
 
   handleSubmit (e) {
     e.preventDefault();
-    this.props.processForm(this.state)
-      .then(() => this.props.closeModal());
+    this.props.processForm(this.setUser())
+      .then(() => this.props.closeModal(),
+      this.handleErrors);
   }
 
   updateProperty (property) {
@@ -31,12 +37,22 @@ class SessionForm extends React.Component {
     this.props.login(guestUser).then(() => this.props.closeModal());
   }
 
+  setUser () {
+    return {
+      username: this.state.username,
+      password: this.state.password
+    };
+  }
+
   render () {
     const text = this.props.formType === "login" ? "Log In" : "Sign Up";
+    const errors = this.state.errors.map((err, idx) => (
+      <li key={idx}>{err}</li>
+    ));
 
     return (
       <section className="form">
-
+        <div className="errors">{ errors }</div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
