@@ -1,7 +1,7 @@
 .nav {
   background-color: #333333;
   color: #F2F2F2;
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   font-size: 14px;
   height: 46px;
@@ -35,18 +35,21 @@
 
 .orange {
   background-color: #FF6500;
+  cursor: pointer;
 }
 
-.search {
+#search {
   width: 575px;
   height: 25px;
-  border-radius: 5px;
+  margin: -3px -5px;
+  font-size: 14px;
   border: 0px;
-  margin: -20px -5px;
+
 }
 
 .right a {
   padding: 5px 10px;
   border: 1px solid #F2F2F2;
   border-radius: 4px;
+  cursor: pointer;
 }

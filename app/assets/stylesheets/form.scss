@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+}
+
+input {
+  display: block;
+  height: 25px;
+  width: 375px;
+  font-size: 18px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #FF6500;
+  padding: 5px 10px;
+  border: 1px solid #F2F2F2;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
