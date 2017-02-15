@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import Modal from 'react-modal';
 
 import { logout } from '../../actions/session_actions';
@@ -11,14 +10,12 @@ import RightNavLoggedIn from './right_nav_logged_in';
 import RightNavLoggedOut from './right_nav_logged_out';
 import { modalStyle } from '../../util/modal_style.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  Modal.setAppElement(document.body);
-});
-
 class Nav extends React.Component {
   constructor (props) {
     super(props);
     this.state = { modal: false, formType: "" };
+
+    Modal.setAppElement('#root');
   }
 
   openModal (type) {
@@ -64,37 +61,6 @@ class Nav extends React.Component {
       </section>
     );
   }
-
-  //   return (
-  //     <section className="nav">
-  //       <ul className="nav">
-  //         <li className="left logo">
-  //           <Link to="/">Stratus Sound</Link>
-  //         </li>
-  //
-  //         <li className="left">
-  //           <Link to="/">Home</Link>
-  //         </li>
-  //
-  //         <li>
-  //           <input id="search" type="text" placeholder="Search"/>
-  //         </li>
-  //
-  //
-  //       </ul>
-  //
-  //       <Modal isOpen={this.state.modal}
-  //         onRequestClose={this.closeModal.bind(this)}
-  //         contentLabel="Modal"
-  //         style={style}>
-  //
-  //         <SessionFormContainer
-  //           closeModal={this.closeModal}
-  //           formType={this.state.formType} />
-  //       </Modal>
-  //     </section>
-  //   );
-  // }
 }
 
 const mapStateToProps = (state) => ({
