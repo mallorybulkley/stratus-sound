@@ -5,7 +5,7 @@
   display: flex;
   font-size: 14px;
   height: 46px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .nav ul {
@@ -49,7 +49,10 @@
 
 .right a {
   padding: 5px 10px;
-  border: 1px solid #F2F2F2;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.border a {
+  border: 1px solid #F2F2F2;
 }

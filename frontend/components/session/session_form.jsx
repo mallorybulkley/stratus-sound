@@ -12,13 +12,15 @@ class SessionForm extends React.Component {
   handleSubmit (e) {
     e.preventDefault();
     this.props.processForm(this.state)
-      .then(() => this.props.router.push("/"));
+      .then(() => {
+        this.props.closeModal();
+      });
   }
 
   updateProperty (property) {
-    return (e) => {
-      this.setState({ [property]: e.target.value });
-    };
+    return (e) => (
+      this.setState({ [property]: e.target.value })
+    );
   }
 
   render () {
