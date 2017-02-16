@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'faker'
+gem 'figaro'
 gem 'paperclip', '5.0.0.beta1'
 
 group :development, :test do
