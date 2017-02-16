@@ -6,3 +6,39 @@ img {
   width: 160px;
   height: 160px;
 }
+
+.track .header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  background: radial-gradient(#f2f2f2,#ccc);;
+}
+
+.track img {
+  width: 340px;
+  height: 340px;
+  margin: 20px;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #f2f2f2;
+  margin-top: 25px;
+
+  ul {
+    width: 670px;
+  }
+}
+
+.sidebar {
+  width: 300px;
+  margin: 30px;
+}
+
+h4 {
+  margin: 0;
+  color: #ccc;
+  font-weight: normal;
+  border-bottom: 1px solid #F2F2F2;
+}
