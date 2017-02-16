@@ -14,9 +14,14 @@ class Stream extends React.Component {
     ));
 
     return (
-      <ul>
-        { tracks }
-      </ul>
+      <section className="stream">
+        <ul className="header">
+          <li><h1>Stream</h1></li>
+        </ul>
+        <ul className="tracks">
+          { tracks }
+        </ul>
+      </section>
     );
   }
 }
