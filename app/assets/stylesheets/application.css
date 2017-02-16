@@ -14,13 +14,14 @@
  *= require_self
  */
 
-body, ul, li, a {
+body, ul, li, a, h4 {
   list-style: none;
   text-decoration: none;
   color: inherit;
   margin: 0;
   padding: 0;
   font-family: 'Overpass', sans-serif;
+  font-size: 14px;
 }
 
 body {

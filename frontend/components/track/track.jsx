@@ -32,11 +32,11 @@ class Track extends React.Component {
 
           <ul>
             <li>{track.description}</li>
-            <li>{track.release_date}</li>
+            <li><h4>Release Date:</h4> { new Date(track.release_date).toDateString().slice(4) }</li>
           </ul>
 
           <section className="sidebar">
-            <h4>More Tracks</h4>
+            <h3>More Tracks</h3>
             <div>more things will go here eventually</div>
           </section>
         </section>
