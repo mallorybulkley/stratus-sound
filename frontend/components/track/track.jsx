@@ -13,15 +13,15 @@ class Track extends React.Component {
     return (
       <section className="track">
         <section className="header">
+            <div className="play">
+              Play
+            </div>
           <ul>
             <li>
-              Play
+              <h3>{ track.user ? track.user.username : "" }</h3>
             </li>
             <li>
-              { track.user ? track.user.username : "" }
-            </li>
-            <li>
-              { track.name }
+              <h2>{ track.name }</h2>
             </li>
           </ul>
           <img src={track.photo_url}/>
@@ -32,11 +32,11 @@ class Track extends React.Component {
 
           <ul>
             <li>{track.description}</li>
-            <li><h4>Release Date:</h4> { new Date(track.release_date).toDateString().slice(4) }</li>
+            <li><h5>Release Date:</h5> { new Date(track.release_date).toDateString().slice(4) }</li>
           </ul>
 
           <section className="sidebar">
-            <h3>More Tracks</h3>
+            <h4>More Tracks</h4>
             <div>more things will go here eventually</div>
           </section>
         </section>

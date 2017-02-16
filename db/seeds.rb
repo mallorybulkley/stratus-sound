@@ -9,7 +9,7 @@
 User.destroy_all
 
 User.create(
-  username: "guest",
+  username: "Guest",
   password: "password",
   location: "New York, NY",
   bio: "This is a guest account"

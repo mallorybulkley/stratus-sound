@@ -13,7 +13,7 @@ class UserInfo extends React.Component {
     return (
       <div className="info">
         <img src={user.photo_url} />
-        <h4>{user.username}</h4>
+        <h5>{user.username}</h5>
       </div>
     )
   }
