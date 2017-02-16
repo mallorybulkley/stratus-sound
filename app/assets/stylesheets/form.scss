@@ -1,4 +1,4 @@
-input {
+input, select {
   display: block;
   height: 25px;
   width: 375px;
@@ -7,6 +7,16 @@ input {
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 0 5px;
+}
+
+select {
+  width: 200px;
+  font-size: 16px;
+}
+
+input[type="file"] {
+  border: 0;
+  font-size: 14px;
 }
 
 button {
@@ -29,4 +39,61 @@ button {
 
 .errors {
   color: #FF6500;
+}
+
+.form.upload {
+  width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+
+  button {
+    width: auto;
+    margin: 0 5px;
+  }
+  a {
+    display: inline;
+  }
+}
+
+.form div {
+  text-align: right;
+}
+
+.upload.image {
+  width: 300px;
+}
+
+.image input {
+  width: 260px;
+}
+
+header {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 25px;
+}
+
+
+.upload img {
+  width: 260px;
+  height: 260px;
+  background: linear-gradient(#846170, #70929c);
+  margin-right: 20px;
+}
+
+label {
+  display: block;
+}
+
+textarea {
+  display: block;
+  height: 125px;
+  width: 375px;
+  font-size: 14px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0 5px;
 }

@@ -15,7 +15,7 @@ class Stream extends React.Component {
 
     return (
       <section className="stream">
-        <ul className="header">
+        <ul className="stream-header">
           <li><h1>Stream</h1></li>
         </ul>
         <ul className="tracks">

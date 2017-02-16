@@ -19,6 +19,6 @@ export const modalStyle = {
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '4px',
     outline                    : 'none',
-    padding                    : '20px'
+    padding                    : '20px',
   }
 };
