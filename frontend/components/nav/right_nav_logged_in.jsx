@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const RightNavLoggedIn = ({currentUser, logout}) => (
   <ul className="right">
     <li>
-      <Link to="/">Upload</Link>
+      <Link to="/upload">Upload</Link>
     </li>
 
     <li>

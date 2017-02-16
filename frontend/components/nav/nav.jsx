@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-modal';
 
 import { logout } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/error_actions';
 import SessionFormContainer from '../session/session_form_container';
 import LeftNav from './left_nav';
 import Search from './search';
@@ -24,6 +25,7 @@ class Nav extends React.Component {
 
   closeModal(){
     this.setState({ modal: false, formType: "" });
+    this.props.clearErrors();
   }
 
   rightNav () {
@@ -68,7 +70,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

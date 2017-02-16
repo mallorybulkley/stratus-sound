@@ -17,7 +17,7 @@ const RightNavLoggedOut = ({openModal}) => (
     </li>
 
     <li>
-      <Link to="/">Upload</Link>
+      <Link to="/upload">Upload</Link>
     </li>
   </ul>
 );
