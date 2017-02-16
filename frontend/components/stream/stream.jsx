@@ -1,5 +1,5 @@
 import React from 'react';
-import Track from './track';
+import StreamIndexItem from './stream_index_item';
 
 class Stream extends React.Component {
   constructor (props) {
@@ -10,7 +10,7 @@ class Stream extends React.Component {
 
   render () {
     const tracks = this.props.tracks.map((track) => (
-      <Track track={track} key={track.id}/>
+      <StreamIndexItem track={track} key={track.id}/>
     ));
 
     return (

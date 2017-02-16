@@ -6,6 +6,7 @@ import App from './app';
 import Home from './home/home';
 import SessionFormContainer from './session/session_form_container';
 import TrackFormContainer from './track/track_form_container';
+import TrackContainer from './track/track_container';
 
 const _ensureLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.username;
@@ -27,6 +28,7 @@ const Root = ({ store }) => (
       <Route path="/" component={ App } >
         <IndexRoute component={ Home } />
         <Route path="upload" component={ TrackFormContainer } onEnter={ _ensureLoggedIn }/>
+        <Route path="tracks/:trackId" component={ TrackContainer } />
       </Route>
     </Router>
   </Provider>

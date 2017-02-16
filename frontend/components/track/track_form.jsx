@@ -16,6 +16,7 @@ class TrackForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updatePhoto = this.updatePhoto.bind(this);
+    this.updateAudio = this.updateAudio.bind(this);
     this.createTrack = this.createTrack.bind(this);
   }
 
@@ -26,10 +27,15 @@ class TrackForm extends React.Component {
     formData.append("track[release_date]", this.state.release_date);
     formData.append("track[genre]", this.state.genre);
     formData.append("track[user_id]", this.props.currentUser.id);
+
     if (this.state.photoFile) {
       formData.append("track[photo]", this.state.photoFile);
     }
-    // formData.append("track[audio]", this.state.audioFile);
+
+    if (this.state.audioFile) {
+      formData.append("track[audio]", this.state.audioFile);
+    }
+
     return formData;
   }
 
@@ -39,6 +45,19 @@ class TrackForm extends React.Component {
       .then(() => {
         this.props.router.push('/');
       });
+  }
+
+  updateAudio (e) {
+    const audio = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.onloadend = () => {
+      this.setState({ audioFile: audio });
+    };
+
+    if (audio) {
+      fileReader.readAsDataURL(audio)
+    }
   }
 
   updatePhoto (e) {
@@ -84,11 +103,11 @@ class TrackForm extends React.Component {
             onChange={this.updateProperty("genre")}
             placeholder="Genre" />
 
-          <input type="file"
+          Photo: <input type="file"
             onChange={this.updatePhoto} />
 
-          <input type="file"
-            onChange={this.updateProperty("audioFile")} />
+          Audio: <input type="file"
+            onChange={this.updateAudio} />
 
           <button onClick={this.handleSubmit} className="orange">Upload</button>
         </form>
