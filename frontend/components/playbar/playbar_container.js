@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCurrentTrack: (id) => fetchCurrentTrack(id)
+  fetchCurrentTrack: (id) => dispatch(fetchCurrentTrack(id))
 });
 
 export default connect(

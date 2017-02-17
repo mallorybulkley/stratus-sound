@@ -1,0 +1,26 @@
+progress, progress::-webkit-progress-value {
+  background-color: #F50;
+  border: 0;
+  height: 1px;
+  width: 475px;
+}
+
+progress::-webkit-progress-bar, progress::-moz-progress-bar {
+  background-color: #F50;
+  border: 0;
+  height: 1px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+}
+
+.progress li {
+  padding: 5px;
+  font-size: 11px;
+}
+
+#currentTime {
+  color: #F50;
+}
