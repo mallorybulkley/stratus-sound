@@ -10,7 +10,7 @@ class Stream extends React.Component {
 
   render () {
     const tracks = this.props.tracks.map((track) => (
-      <StreamIndexItem track={track} key={track.id}/>
+      <StreamIndexItem track={track} key={track.id} fetchCurrentTrack={this.props.fetchCurrentTrack} />
     ));
 
     return (

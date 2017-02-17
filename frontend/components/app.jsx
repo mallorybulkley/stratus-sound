@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './nav/nav';
+import Playbar from './playbar/playbar_container';
 
 const App = ({ children }) => (
   <div>
@@ -7,6 +8,7 @@ const App = ({ children }) => (
     <main className="main">
       { children }
     </main>
+    <Playbar />
   </div>
 );
 

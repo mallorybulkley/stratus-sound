@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const StreamIndexItem = ({ track }) => {
+const StreamIndexItem = ({ track, fetchCurrentTrack }) => {
   return (
     <ul className="stream-tracks">
       <li>
@@ -10,7 +10,7 @@ const StreamIndexItem = ({ track }) => {
         </Link>
       </li>
 
-      <li className="small-play">
+      <li className="small-play" onClick={ () => fetchCurrentTrack(track.id) }>
         Play
       </li>
 
@@ -28,10 +28,3 @@ const StreamIndexItem = ({ track }) => {
 };
 
 export default StreamIndexItem;
-
-
-  // <li>
-  //   <audio controls>
-  //     <source src={track.audio_url} type="audio/mpeg"/>
-  //   </audio>
-  // </li>
