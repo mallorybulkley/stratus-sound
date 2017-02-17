@@ -2,19 +2,38 @@ import React from 'react';
 import UserInfo from './user_info';
 
 class Track extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.isCurrentTrack = this.props.currentTrack.track && (this.props.currentTrack.track.id === this.props.params.id);
+  }
+
   componentWillMount () {
     this.props.fetchTrack();
+  }
+
+  handleClick () {
+    this.isCurrentTrack = this.props.currentTrack.track && (this.props.currentTrack.track.id === this.props.track.id);
+
+    if (this.isCurrentTrack) {
+      this.props.togglePlay();
+    } else {
+      this.props.fetchCurrentTrack(this.props.track.id);
+    }
   }
 
   render () {
     const track = this.props.track;
     if (!track.id) return (<div></div>);
 
+    const togglePlayButton = this.isCurrentTrack && this.props.currentTrack.playing ?
+    (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
+
     return (
       <section className="track">
         <section className="header">
-            <div className="play" onClick={ () => this.props.fetchCurrentTrack(track.id) }>
-              Play
+            <div className="play" onClick={ this.handleClick.bind(this) }>
+              { togglePlayButton }
             </div>
           <ul>
             <li>

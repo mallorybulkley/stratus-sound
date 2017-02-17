@@ -9,8 +9,14 @@ class Stream extends React.Component {
   }
 
   render () {
+    const currentTrack = this.props.currentTrack;
+
     const tracks = this.props.tracks.map((track) => (
-      <StreamIndexItem track={track} key={track.id} fetchCurrentTrack={this.props.fetchCurrentTrack} />
+      <StreamIndexItem key={ track.id }
+        track={ track }
+        fetchCurrentTrack={ this.props.fetchCurrentTrack }
+        togglePlay={ this.props.togglePlay }
+        currentTrack={ currentTrack.track && currentTrack.track.id === track.id ? currentTrack : false } />
     ));
 
     return (
