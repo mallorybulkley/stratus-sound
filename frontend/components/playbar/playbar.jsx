@@ -11,9 +11,8 @@ class Playbar extends React.Component {
 
     return (
       <section className="playbar">
-        <audio controls>
-          <source src={track.audio_url} type="audio/mpeg"/>
-        </audio>
+
+        <audio controls autoPlay preload="auto" src={track.audio_url} type="audio/mpeg"/>
 
         <div className="track-info">
           <img src={ track.photo_url } />
