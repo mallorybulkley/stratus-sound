@@ -4,8 +4,6 @@ import UserInfo from './user_info';
 class Track extends React.Component {
   constructor (props) {
     super(props)
-
-    this.isCurrentTrack = this.props.currentTrack.track && (this.props.currentTrack.track.id === this.props.params.id);
   }
 
   componentWillMount () {
@@ -13,20 +11,22 @@ class Track extends React.Component {
   }
 
   handleClick () {
-    this.isCurrentTrack = this.props.currentTrack.track && (this.props.currentTrack.track.id === this.props.track.id);
-
-    if (this.isCurrentTrack) {
+    if (this.isCurrentTrack()) {
       this.props.togglePlay();
     } else {
       this.props.fetchCurrentTrack(this.props.track.id);
     }
   }
 
+  isCurrentTrack () {
+    return this.props.currentTrack.track && (this.props.currentTrack.track.id === this.props.track.id);
+  }
+
   render () {
     const track = this.props.track;
     if (!track.id) return (<div></div>);
 
-    const togglePlayButton = this.isCurrentTrack && this.props.currentTrack.playing ?
+    const togglePlayButton = this.isCurrentTrack() && this.props.currentTrack.playing ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
     return (
