@@ -13,7 +13,7 @@ class Track extends React.Component {
     return (
       <section className="track">
         <section className="header">
-            <div className="play">
+            <div className="play" onClick={ () => this.props.fetchCurrentTrack(track.id) }>
               Play
             </div>
           <ul>

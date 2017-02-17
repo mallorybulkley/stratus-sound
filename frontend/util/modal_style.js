@@ -20,5 +20,6 @@ export const modalStyle = {
     borderRadius               : '4px',
     outline                    : 'none',
     padding                    : '20px',
+    backgroundColor            : '#ffffff'
   }
 };

@@ -14,7 +14,7 @@
  *= require_self
  */
 
-body, ul, li, a, h5 {
+html, body, ul, li, a, h5 {
   list-style: none;
   text-decoration: none;
   color: inherit;

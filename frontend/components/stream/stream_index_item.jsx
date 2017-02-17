@@ -14,14 +14,15 @@ const StreamIndexItem = ({ track, fetchCurrentTrack }) => {
         Play
       </li>
 
-      <li>
+      <ul>
+
         <li>
            <h4>{track.user.username}</h4>
         </li>
         <li>
           {track.name}
         </li>
-      </li>
+      </ul>
 
     </ul>
   );
