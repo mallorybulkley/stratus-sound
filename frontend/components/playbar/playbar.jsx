@@ -1,5 +1,6 @@
 import React from 'react';
 import ProgressBar from './progress_bar';
+import Controller from './controller';
 import { formatDuration } from '../../util/format_util';
 
 class Playbar extends React.Component {
@@ -7,13 +8,8 @@ class Playbar extends React.Component {
     super(props);
 
     this.state = {
-      duration: null,
       currentTime: null
     };
-  }
-
-  onLoad(arg) {
-    this.setState({ duration: formatDuration(this.audioTag.duration) })
   }
 
   updateProgress () {
@@ -29,11 +25,12 @@ class Playbar extends React.Component {
 
         <audio controls autoPlay preload="auto" src={track.audio_url} type="audio/mpeg"
           ref={ (tag) => this.audioTag = tag }
-          onPlay={ this.onLoad.bind(this)}
           onTimeUpdate={ this.updateProgress.bind(this) }
-          />
+        />
 
-        <ProgressBar time={ this.state.currentTime } audio={ this.audioTag }/>
+        <Controller audio={ this.audioTag } />
+        <ProgressBar audio={ this.audioTag }/>
+
         <div className="track-info">
           <img src={ track.photo_url } />
           <ul>

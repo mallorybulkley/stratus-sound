@@ -2,15 +2,12 @@ import React from 'react';
 import { formatDuration } from '../../util/format_util';
 
 class ProgressBar extends React.Component {
-  componentDidMount () {
-    // setInterval(() => this.render(), 1000);
-  }
-
   render () {
-    if (!this.props.time) return null;
+    const audio = this.props.audio;
+    if (!audio) return null;
 
-    const progress = formatDuration(Math.floor(this.props.time));
-    const duration = formatDuration(Math.floor(this.props.audio.duration));
+    const progress = formatDuration(Math.floor(audio.currentTime));
+    const duration = formatDuration(Math.floor(audio.duration));
 
     return (
       <ul className="progress">
@@ -19,8 +16,8 @@ class ProgressBar extends React.Component {
         </li>
 
           <progress
-            value={ this.props.audio.currentTime }
-            max={this.props.audio.duration} />
+            value={ audio.currentTime }
+            max={ audio.duration } />
 
         <li>
           { duration }
