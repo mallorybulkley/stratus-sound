@@ -1,11 +1,13 @@
-import { RECEIVE_CURRENT_TRACK } from '../actions/current_track_actions';
+import { RECEIVE_CURRENT_TRACK, TOGGLE_PLAY } from '../actions/current_track_actions';
 
-const CurrentTrackReducer = (state = {}, action) => {
+const CurrentTrackReducer = (state = { track: null, playing: false }, action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_CURRENT_TRACK:
-      return action.track;
+      return { track: action.track, playing: true };
+    case TOGGLE_PLAY:
+      return Object.assign({}, state, { playing: !state.playing });
     default:
       return state;
   }

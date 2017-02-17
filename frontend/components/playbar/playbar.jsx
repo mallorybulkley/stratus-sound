@@ -18,7 +18,7 @@ class Playbar extends React.Component {
 
   render () {
     const track = this.props.track;
-    if (!track.id) return (<div></div>);
+    if (!track) return (<div></div>);
 
     return (
       <section className="playbar">
@@ -28,7 +28,7 @@ class Playbar extends React.Component {
           onTimeUpdate={ this.updateProgress.bind(this) }
         />
 
-        <Controller audio={ this.audioTag } />
+      <Controller audio={ this.audioTag } playing={this.props.playing} togglePlay={this.props.togglePlay} />
         <ProgressBar audio={ this.audioTag }/>
 
         <div className="track-info">

@@ -1,15 +1,21 @@
-<i class="fa fa-step-backward" aria-hidden="true"></i>
 import React from 'react';
 
 class Controller extends React.Component {
   constructor (props) {
     super(props)
 
-    this.playing = true;
-
     this.restartAudio = this.restartAudio.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
+  }
 
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.audio) return null;
+
+    if (nextProps.playing) {
+      this.props.audio.play();
+    } else {
+      this.props.audio.pause();
+    }
   }
 
   restartAudio () {
@@ -19,19 +25,13 @@ class Controller extends React.Component {
   }
 
   togglePlay () {
-    if (this.playing) {
-      this.props.audio.pause();
-      this.playing = false;
-    } else {
-      this.props.audio.play();
-      this.playing = true;
-    }
+    this.props.togglePlay();
   }
 
   render () {
     if (!this.props.audio) return null;
 
-    const togglePlayButton = this.playing ?
+    const togglePlayButton = this.props.playing ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
     return (
