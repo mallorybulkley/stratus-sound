@@ -100,8 +100,8 @@ class TrackForm extends React.Component {
       <li key={idx}>{err}</li>
     ));
 
-    const genres = GENRES.map((genre) => (
-      <option value={genre}>{genre}</option>
+    const genres = GENRES.map((genre, idx) => (
+      <option value={genre} key={idx}>{genre}</option>
     ))
 
     return (
