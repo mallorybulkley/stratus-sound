@@ -6,6 +6,13 @@ class Controller extends React.Component {
 
     this.restartAudio = this.restartAudio.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
+
+    document.addEventListener('keypress', (e) => {
+      if (e.key === " ") {
+        e.preventDefault();
+        this.togglePlay();
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps) {
