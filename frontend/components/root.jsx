@@ -27,7 +27,7 @@ const Root = ({ store }) => (
     <Router history={ hashHistory }>
       <Route path="/" component={ App } >
         <IndexRoute component={ Home } />
-        <Route path="upload" component={ TrackFormContainer } onEnter={ _ensureLoggedIn }/>
+        <Route path="upload" component={ TrackFormContainer } onEnter={ _ensureLoggedIn } />
         <Route path="tracks/:trackId" component={ TrackContainer } />
       </Route>
     </Router>
