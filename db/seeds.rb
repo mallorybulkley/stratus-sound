@@ -94,7 +94,7 @@ ALBUM_ART = [
 ]
 
 20.times do |i|
-  Track.create!(
+  Track.create(
     name: Faker::Book.title,
     user_id: users.sample.id,
     release_date: Faker::Date.between(1.year.ago, Date.today),
