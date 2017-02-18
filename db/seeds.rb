@@ -74,7 +74,6 @@ AUDIO = [
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/The_Agrarians_-_05_-_Two_Hearts_Living_In_Two_Separate_Worlds.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/sanmi_-_10_-_Intimacy_of_The_Funk.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lobo_Loco_-_01_-_Requickened_City_ID_377.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lately_Kind_of_Yeah_-_07_-_Moonquakes.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lobo_Loco_-_10_-_Mountain_Creek_ID_399.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Nosens_-_04_-_Stellar_Legacy.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Mirth_Naarc_-_04_-_Tongue_Weaves.mp3"
