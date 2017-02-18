@@ -76,7 +76,12 @@ AUDIO = [
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lobo_Loco_-_01_-_Requickened_City_ID_377.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lobo_Loco_-_10_-_Mountain_Creek_ID_399.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Nosens_-_04_-_Stellar_Legacy.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Mirth_Naarc_-_04_-_Tongue_Weaves.mp3"
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Mirth_Naarc_-_04_-_Tongue_Weaves.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/music%252FZiklibrenbib%252FMesmerists%252FLeft_songs%252FMesmerists_-_10_-_Three_Times.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/music%252FZiklibrenbib%252FMi_Nave%252FEstela%252FMi_Nave_-_06_-_Matt_Damon.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/The_Modern_Airline_-_10_-_Make_With_The_Action.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Infecticide_-_12_-_Le_Monopole_du_Cur.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Quint_Baker_-_13_-_Moon_Child.mp3"
 ]
 
 ALBUM_ART = [
@@ -107,10 +112,12 @@ while tracks.count < 25
   ))
 end
 
-50.times do
-  Comment.create(
-    body: Faker::TwinPeaks.quote,
-    user_id: users.sample.id,
-    track_id: tracks.sample.id
-  )
+tracks.each do |track|
+  rand(1..15).times do
+    Comment.create(
+      body: Faker::TwinPeaks.quote,
+      user_id: users.sample.id,
+      track_id: track.id
+    )
+  end
 end
