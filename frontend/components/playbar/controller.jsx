@@ -7,8 +7,8 @@ class Controller extends React.Component {
     this.restartAudio = this.restartAudio.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
 
-    document.addEventListener('keypress', (e) => {
-      if (e.key === " ") {
+    document.body.addEventListener('keypress', (e) => {
+      if (e.key === " " && (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") ) {
         e.preventDefault();
         this.togglePlay();
       }
