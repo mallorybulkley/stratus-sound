@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from './comment';
 
 class CommentIndex extends React.Component {
   constructor (props) {
@@ -20,22 +21,13 @@ class CommentIndex extends React.Component {
   }
 
   render () {
-    const comments = this.props.comments.map((comment) => (
-      <div key={comment.id}>
-        <span className="photo">
-          <img className="comments photo" src={ comment.user.photo_url } />
-        </span>
-
-        <ul>
-          <li>
-            <h5>{ comment.user.username }</h5>
-          </li>
-          <li>
-            { comment.body }
-          </li>
-        </ul>
-      </div>
-    ));
+    const comments = this.props.comments.map((comment) => {
+      if (!comment) return;
+      return (
+      <Comment key={comment.id} comment={comment} deleteComment={ this.props.deleteComment }
+        showDelete={this.props.currentUser.id === comment.user.id} />
+    )
+  });
 
     return (
       <section className="comments">

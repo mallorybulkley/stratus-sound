@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommentIndex from './comment_index';
-import { fetchComments } from '../../actions/comment_actions';
+import { fetchComments, deleteComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state) => ({
-  comments: state.comments
+  comments: state.comments,
+  currentUser: state.session
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchComments: (trackId) => dispatch(fetchComments(trackId))
+  fetchComments: (trackId) => dispatch(fetchComments(trackId)),
+  deleteComment: (id) => dispatch(deleteComment(id))
 });
 
 export default connect(
