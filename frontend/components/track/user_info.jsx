@@ -8,7 +8,9 @@ class UserInfo extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.props.fetchUser(nextProps.userId);
+    if (nextProps.userId !== this.props.userId) {
+      this.props.fetchUser(nextProps.userId);
+    }
   }
 
   render () {

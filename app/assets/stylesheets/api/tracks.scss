@@ -44,7 +44,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #f2f2f2;
-  margin-top: 25px;
 
   ul {
     width: 670px;
@@ -67,4 +66,60 @@ h4 {
   color: #ccc;
   font-weight: normal;
   border-bottom: 1px solid #F2F2F2;
+}
+
+
+// comments
+
+section.comments {
+  margin: 25px 25px 0 0;
+}
+
+img.comments.photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 22px;
+  margin: 10px;
+}
+
+span.comments.photo {
+  border: 1px solid red;
+}
+
+.comments div {
+  display: flex;
+  align-items: center;
+}
+
+.comments ul {
+  margin: 10px;
+  border: none;
+}
+
+.comments li {
+  font-size: 12px;
+  margin: 0;
+}
+
+.comments h5 {
+  font-size: 11px;
+  color: #ccc;
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.comment-form img {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+.comment-form input {
+  width: 750px;
+  font-size: 15px;
+  height: 30px;
 }

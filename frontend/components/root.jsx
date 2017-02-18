@@ -24,7 +24,7 @@ const _redirectIfLoggedIn = (nextState, replace) => {
 
 const Root = ({ store }) => (
   <Provider store={ store }>
-    <Router history={ hashHistory }>
+    <Router history={ hashHistory } onUpdate={ () => window.scrollTo(0, 0) } >
       <Route path="/" component={ App } >
         <IndexRoute component={ Home } />
         <Route path="upload" component={ TrackFormContainer } onEnter={ _ensureLoggedIn } />
