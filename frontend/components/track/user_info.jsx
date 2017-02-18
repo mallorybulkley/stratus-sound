@@ -4,12 +4,17 @@ import { connect } from 'react-redux';
 
 class UserInfo extends React.Component {
   componentDidMount () {
-    this.props.fetchUser(this.props.userId)
+    this.props.fetchUser(this.props.userId);
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.props.fetchUser(nextProps.userId);
   }
 
   render () {
-    const user = this.props.user
-    if (!user.id) return (<div></div>);
+    const user = this.props.user;
+    if (user.id !== this.props.userId) return (<div></div>);
+
     return (
       <div className="info">
         <img src={user.photo_url} />

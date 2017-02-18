@@ -18,7 +18,6 @@ class ProgressBar extends React.Component {
           <progress
             value={ audio.currentTime }
             max={ audio.duration } />
-
         <li>
           { duration }
         </li>
