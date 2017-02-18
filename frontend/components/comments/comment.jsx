@@ -17,7 +17,9 @@ const Comment = ({comment, deleteComment, showDelete}) => {
       </ul>
 
       { showDelete ?
-        <button onClick={ () => deleteComment(comment.id) }>Delete</button>
+        <button onClick={ () => deleteComment(comment.id) }>
+          <i className="fa fa-trash-o" aria-hidden="true"/>
+        </button>
         : "" }
 
     </div>
