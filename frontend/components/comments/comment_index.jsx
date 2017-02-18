@@ -10,8 +10,9 @@ class CommentIndex extends React.Component {
   render () {
     const comments = this.props.comments.map((comment) => (
       <div key={comment.id}>
-
+        <span className="photo">
           <img className="comments photo" src={ comment.user.photo_url } />
+        </span>
 
         <ul>
           <li>

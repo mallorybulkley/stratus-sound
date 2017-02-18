@@ -93,8 +93,10 @@ ALBUM_ART = [
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/images/sun-718336_640.jpg"
 ]
 
-20.times do |i|
-  Track.create(
+tracks = []
+
+while tracks.count < 25
+  tracks.push(Track.create(
     name: Faker::Book.title,
     user_id: users.sample.id,
     release_date: Faker::Date.between(1.year.ago, Date.today),
@@ -102,5 +104,13 @@ ALBUM_ART = [
     audio: AUDIO.sample,
     description: Faker::Lorem.paragraph,
     photo: ALBUM_ART.sample
+  ))
+end
+
+50.times do
+  Comment.create(
+    body: Faker::TwinPeaks.quote,
+    user_id: users.sample.id,
+    track_id: tracks.sample.id
   )
 end

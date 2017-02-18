@@ -80,7 +80,11 @@ img.comments.photo {
   width: 40px;
   height: 40px;
   border-radius: 22px;
-  margin: 5px;
+  margin: 10px;
+}
+
+span.comments.photo {
+  border: 1px solid red;
 }
 
 .comments div {
