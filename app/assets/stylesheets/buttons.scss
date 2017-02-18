@@ -1,0 +1,67 @@
+.fa {
+  font-size: 22px;
+  padding: 15px;
+  color: #333333;
+}
+
+.fa-repeat {
+  font-size: 14px;
+  color: #898989;
+  margin-left: 40px;
+}
+
+.small-play {
+  width: 36px;
+  height: 36px;
+  background-color: #F50;
+  border-radius: 33px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 5px 0 20px;
+  position: relative;
+  top: -18px;
+  cursor: pointer;
+}
+
+.small-play i {
+  color: white;
+  position: relative;
+  left: 3px;
+  font-size: 18px;
+}
+
+.small-play i.fa-pause {
+  left: 1px;
+}
+
+.play {
+  width: 60px;
+  height: 60px;
+  background-color: #F50;
+  border-radius: 33px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+  position: absolute;
+  left: 50px;
+  cursor: pointer;
+}
+
+.play i {
+  color: white;
+  font-size: 32px;
+  position: relative;
+  left: 4px;
+}
+
+.play i.fa-pause {
+  left: 1px;
+}
+
+.controller i.fa-play {
+  padding: 16px;
+}

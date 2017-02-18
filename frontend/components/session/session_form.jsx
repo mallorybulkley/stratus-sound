@@ -2,29 +2,23 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 
 const guestUser = {
-  username: "guest",
+  username: "Guest",
   password: "password"
 };
 
 class SessionForm extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { username: "", password: "", errors: [] };
+    this.state = { username: "", password: "" };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
-    this.handleErrors = this.handleErrors.bind(this);
-  }
-
-  handleErrors (errors) {
-    this.setState({ errors: errors.responseJSON.errors });
   }
 
   handleSubmit (e) {
     e.preventDefault();
     this.props.processForm(this.setUser())
-      .then(() => this.props.closeModal(),
-      this.handleErrors);
+      .then(() => this.props.closeModal());
   }
 
   updateProperty (property) {
@@ -46,7 +40,7 @@ class SessionForm extends React.Component {
 
   render () {
     const text = this.props.formType === "login" ? "Log In" : "Sign Up";
-    const errors = this.state.errors.map((err, idx) => (
+    const errors = this.props.errors.map((err, idx) => (
       <li key={idx}>{err}</li>
     ));
 

@@ -1,0 +1,33 @@
+.stream {
+  width: 850px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #F50;
+  padding: 25px 10px 0;
+  margin: 0;
+}
+
+ul.stream-header {
+  border-bottom: 1px solid #f2f2f2;
+  margin-left: 20px;
+}
+
+.stream-header li {
+  border-bottom: 1px solid #F50;
+  width: 100px;
+}
+
+.tracks {
+  margin: 25px;
+}
+
+ul.stream-tracks {
+  display: flex;
+  margin: 20px 0;
+}
+
+.stream h4 {
+  border: none;
+}
