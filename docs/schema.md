@@ -51,14 +51,14 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 body            | text      | not null
-commentable_id  | integer   | not null, polymorphic foreign key: tracks or playlists, index
-commentable_type| string    | not null, track or playlist
+track_id        | integer   | not null, foreign key: tracks, index
+user_id         | integer   | not null, foreign key: users, index
 
 **Associations**
 
 belongs_to:
 * user
-* commentable (track or playlist)
+* track
 
 ## playlists
 column name     | data type | details
@@ -75,7 +75,6 @@ belongs_to:
 has_many:
 * tracks
 * follows
-* comments
 
 ## playlist_tracks
 column name     | data type | details
