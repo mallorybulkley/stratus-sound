@@ -2,7 +2,7 @@ require 'byebug'
 
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.where(track_id: params[:trackId])
+    @comments = Comment.includes(:user).where(track_id: params[:trackId])
     render :index
   end
 
