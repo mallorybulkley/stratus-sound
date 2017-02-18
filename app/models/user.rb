@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  has_many :tracks
+  has_many :tracks, :comments
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
