@@ -5,7 +5,8 @@ import { fetchCurrentTrack,togglePlay } from '../../actions/current_track_action
 
 const mapStateToProps = (state, ownProps) => ({
   track: state.track,
-  currentTrack: state.currentTrack
+  currentTrack: state.currentTrack,
+  currentUser: state.session
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -40,7 +40,7 @@ users.push(User.create!(
 ))
 
 
-10.times do
+8.times do
   users.push(User.create!(
     username: Faker::TwinPeaks.character,
     password: "password",
