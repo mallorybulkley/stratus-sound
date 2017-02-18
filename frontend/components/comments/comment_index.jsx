@@ -7,6 +7,18 @@ class CommentIndex extends React.Component {
     this.props.fetchComments(this.props.trackId);
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.trackId !== this.props.trackId) {
+      this.props.fetchComments(nextProps.trackId);
+    }
+  }
+
+  componentWillUpdate (nextProps) {
+    if (this.props.comments.length !== nextProps.comments.length) {
+      this.props.fetchComments(nextProps.trackId);
+    }
+  }
+
   render () {
     const comments = this.props.comments.map((comment) => (
       <div key={comment.id}>

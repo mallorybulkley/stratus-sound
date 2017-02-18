@@ -8,9 +8,8 @@ export const receiveUser = (user) => ({
   user
 });
 
-export const fetchUser = (id) => (dispatch) => {
-  return (
+export const fetchUser = (id) => (dispatch) => (
   UserApiUtil.fetchUser(id)
     .then(data => dispatch(receiveUser(data)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
-) };
+);

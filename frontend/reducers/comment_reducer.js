@@ -1,4 +1,4 @@
-import { RECEIVE_COMMENTS } from '../actions/comment_actions';
+import { RECEIVE_COMMENTS, RECEIVE_COMMENT } from '../actions/comment_actions';
 
 const CommentReducer = (state = [], action) => {
   Object.freeze(state);
@@ -6,6 +6,8 @@ const CommentReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_COMMENTS:
       return action.comments;
+    case RECEIVE_COMMENT:
+      return state.concat(action.comment)
     default:
       return state;
   }
