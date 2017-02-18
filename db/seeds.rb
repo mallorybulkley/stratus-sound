@@ -42,7 +42,7 @@ users.push(User.create!(
 
 8.times do
   users.push(User.create!(
-    username: Faker::TwinPeaks.character,
+    username: Faker::Internet.user_name(Faker::TwinPeaks.character, %w(_ -)),
     password: "password",
     location: Faker::TwinPeaks.location,
     bio: Faker::TwinPeaks.quote,
@@ -67,13 +67,17 @@ GENRES = [
 Track.destroy_all
 
 AUDIO = [
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Bradley_The_Buyer_-_09_-_Insomnia_I.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Monplaisir_-_06_-_Waves.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Monplaisir_-_12_-_Free_To_Use_12.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Monplaisir_-_13_-_Free_To_Use_13.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Quint_Baker_-_08_-_Dream_World.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/The_Agrarians_-_05_-_Two_Hearts_Living_In_Two_Separate_Worlds.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/sanmi_-_10_-_Intimacy_of_The_Funk.mp3"
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/sanmi_-_10_-_Intimacy_of_The_Funk.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lobo_Loco_-_01_-_Requickened_City_ID_377.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lately_Kind_of_Yeah_-_07_-_Moonquakes.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lobo_Loco_-_10_-_Mountain_Creek_ID_399.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Nosens_-_04_-_Stellar_Legacy.mp3",
+  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Mirth_Naarc_-_04_-_Tongue_Weaves.mp3"
 ]
 
 ALBUM_ART = [
