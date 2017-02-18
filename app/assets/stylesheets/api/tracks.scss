@@ -68,3 +68,36 @@ h4 {
   font-weight: normal;
   border-bottom: 1px solid #F2F2F2;
 }
+
+
+// comments
+
+section.comments {
+  margin: 25px 25px 0 0;
+}
+
+img.comments.photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 22px;
+  margin: 5px;
+}
+
+.comments div {
+  display: flex;
+}
+
+.comments ul {
+  margin: 10px;
+  border: none;
+}
+
+.comments li {
+  font-size: 12px;
+  margin: 0;
+}
+
+.comments h5 {
+  font-size: 11px;
+  color: #ccc;
+}

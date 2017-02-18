@@ -1,5 +1,6 @@
 import React from 'react';
 import UserInfo from './user_info';
+import CommentIndexContainer from '../comments/comment_index_container';
 
 class Track extends React.Component {
   constructor (props) {
@@ -46,12 +47,15 @@ class Track extends React.Component {
           <img src={track.photo_url}/>
         </section>
 
+
         <section className="about">
           <UserInfo userId={track.user.id} />
 
           <ul>
             <li>{track.description}</li>
             <li><h5>Release Date:</h5> { new Date(track.release_date).toDateString().slice(4) }</li>
+
+            <CommentIndexContainer trackId={track.id} />
           </ul>
 
           <section className="sidebar">

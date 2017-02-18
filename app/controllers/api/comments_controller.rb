@@ -1,6 +1,8 @@
+require 'byebug'
+
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.find_by(track_id: params[:trackId])
+    @comments = Comment.where(track_id: params[:trackId])
     render :index
   end
 
