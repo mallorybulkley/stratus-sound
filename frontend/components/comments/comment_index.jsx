@@ -31,7 +31,7 @@ class CommentIndex extends React.Component {
 
     return (
       <section className="comments">
-        <h4>Comments</h4>
+        <h4>{ comments.length } Comments</h4>
           { comments }
       </section>
 
