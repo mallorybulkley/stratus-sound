@@ -6,6 +6,7 @@ import TrackReducer from './track_reducer';
 import UserReducer from './user_reducer';
 import CurrentTrackReducer from './current_track_reducer';
 import CommentReducer from './comment_reducer';
+import PlaylistReducer from './playlist_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -14,7 +15,8 @@ const RootReducer = combineReducers({
   track: TrackReducer,
   user: UserReducer,
   currentTrack: CurrentTrackReducer,
-  comments: CommentReducer
+  comments: CommentReducer,
+  playlist: PlaylistReducer
 });
 
 export default RootReducer;

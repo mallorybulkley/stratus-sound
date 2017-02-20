@@ -26,3 +26,12 @@ export const deleteTrack = (id) => {
     url: `api/tracks/${id}`
   });
 };
+
+export const fetchPlaylistTracks = (playlistId) => {
+  return $.ajax({
+    url: 'api/tracks',
+    data: {
+      playlistId
+    }
+  });
+};
