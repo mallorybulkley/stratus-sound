@@ -1,3 +1,58 @@
 // Place all the styles related to the api/playlists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.playlist .header {
+  display: flex;
+  justify-content: flex-end;
+  background: linear-gradient(270deg, #fff, #70929C);
+}
+
+.playlist img {
+  width: 340px;
+  height: 340px;
+  margin: 20px;
+}
+
+.playlist-tracks img {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+
+.playlist-main {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #f2f2f2;
+
+  ul {
+    display: flex;
+    align-items: center;
+    width: 670px;
+    position: relative;
+  }
+
+  ul:hover {
+    background-color: #eee;
+  }
+}
+
+.playlist-track-list {
+  border-right: 1px solid #F2F2F2;
+  margin-top: 10px;
+}
+
+.extra.small-play {
+  display: inherit;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -7px;
+  left: -7px;
+}
+
+.extra.small-play i {
+  font-size: 11px;
+  left: 2px;
+}
