@@ -1,6 +1,11 @@
 class Api::TracksController < ApplicationController
   def index
-    @tracks = Track.all.includes(:user)
+    if params[:playlistId]
+      @tracks = Playlist.find(params[:playlistId]).tracks.includes(:user)
+      # @tracks = Track.joins(:playlists).includes(:user).where("playlist_id = ?", params[:playlistId])
+    else
+      @tracks = Track.all.includes(:user)
+    end
   end
 
   def show
