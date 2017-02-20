@@ -39,6 +39,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  
-  Paperclip.options[:content_type_mappings] = { mp3: "application/octet-stream" }
+
 end

@@ -102,7 +102,7 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    paperclip (5.0.0.beta1)
+    paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
@@ -197,7 +197,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip (= 5.0.0.beta1)
+  paperclip (~> 5.0.0)
   pg (~> 0.15)
   pry-rails
   rails (= 4.2.7.1)

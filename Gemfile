@@ -30,10 +30,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'aws-sdk', '>= 2.0'
 gem 'faker'
 gem 'figaro'
-gem 'paperclip', '5.0.0.beta1'
-gem 'aws-sdk', '>= 2.0'
+gem 'paperclip', '~> 5.0.0'
 
 group :development, :test do
   gem 'annotate'

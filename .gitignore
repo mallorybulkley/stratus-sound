@@ -21,5 +21,3 @@ npm-debug.log
 
 # Ignore application configuration
 /config/application.yml
-/config/secrets.development.yml
-/config/secrets.yml

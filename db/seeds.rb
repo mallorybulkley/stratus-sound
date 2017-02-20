@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.destroy_all
 
 USER_PHOTOS = [
@@ -101,15 +93,25 @@ ALBUM_ART = [
 tracks = []
 
 while tracks.count < 25
-  tracks.push(Track.create(
-    name: Faker::Book.title,
-    user_id: users.sample.id,
-    release_date: Faker::Date.between(1.year.ago, Date.today),
-    genre: GENRES.sample,
-    audio: AUDIO.sample,
-    description: Faker::Lorem.paragraph,
-    photo: ALBUM_ART.sample
-  ))
+  audio = AUDIO.sample
+  puts audio
+
+  begin
+    tracks.push(Track.create(
+      name: Faker::Book.title,
+      user_id: users.sample.id,
+      release_date: Faker::Date.between(1.year.ago, Date.today),
+      genre: GENRES.sample,
+      audio: audio,
+      description: Faker::Lorem.paragraph,
+      photo: ALBUM_ART.sample
+    ))
+  rescue OpenURI::HTTPError
+    puts "rescued"
+  end
+
+  puts tracks
+
 end
 
 tracks.each do |track|
