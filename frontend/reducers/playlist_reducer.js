@@ -6,6 +6,8 @@ const PlaylistReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_PLAYLIST:
       return action.playlist;
+    case RECEIVE_PLAYLISTS:
+      return action.playlists;
     default:
       return state;
   }

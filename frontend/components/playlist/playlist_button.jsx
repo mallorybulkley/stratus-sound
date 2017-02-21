@@ -6,7 +6,7 @@ import PlaylistFormContainer from './playlist_form_container';
 class PlaylistButton extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { modal: false, formType: "create" };
+    this.state = { modal: false, formType: "add" };
 
     Modal.setAppElement('#root');
   }
@@ -37,7 +37,7 @@ class PlaylistButton extends React.Component {
               onClick={ () => this.setState({ formType: "add" }) }>
               Add to Playlist
             </h1>
-            <h1 className={ this.state.formType === "create" ? "active" : "" } 
+            <h1 className={ this.state.formType === "create" ? "active" : "" }
               onClick={ () => this.setState({ formType: "create" }) }>
               Create a Playlist
             </h1>

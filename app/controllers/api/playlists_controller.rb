@@ -1,10 +1,16 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = Playlist.where(user_id: params[:user_id]) # should includes tracks?
+    if params[:user_id]
+      @playlists = Playlist.where(user_id: params[:user_id])
+    elsif params[:track_id]
+      @playlists = Playlist.joins(:playlist_tracks).where(track_id: params[:track_id])
+    else
+      @playlists = Playlist.all
+    end
   end
 
   def create
-    @playlist = Playlist.new(playlist_params)
+    @playlist = Playlist.new(title: params[:title])
     @playlist.user = current_user
 
     if @playlist.save
@@ -25,11 +31,5 @@ class Api::PlaylistsController < ApplicationController
     else
       render json: { errors: @playlist.errors.full_messages }, status: 422
     end
-  end
-
-  private
-
-  def playlist_params
-    params.require(:playlist).permit(:title)
   end
 end

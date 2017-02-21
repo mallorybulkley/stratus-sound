@@ -11,6 +11,7 @@ class Track extends React.Component {
 
   componentWillMount () {
     this.props.fetchTrack();
+    this.props.fetchPlaylistsIn(this.props.trackId);
   }
 
   handleClick () {
@@ -31,6 +32,18 @@ class Track extends React.Component {
 
     const togglePlayButton = this.isCurrentTrack() && this.props.currentTrack.playing ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
+
+    const playlistsIn = this.playlistsIn.map((playlist) => (
+      <ul>
+        <li>
+          { playlist.user.username }
+        </li>
+        <li>
+          { playlist.title }
+        </li>
+      </ul>
+
+    ))
 
     return (
       <section className="track">
@@ -65,8 +78,10 @@ class Track extends React.Component {
           </ul>
 
           <section className="sidebar">
-            <h4>More Tracks</h4>
-            <div>more things will go here eventually</div>
+            <h4>In Playlists</h4>
+            <ul>
+              { playlistsIn }
+            </ul>
           </section>
         </section>
 
