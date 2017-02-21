@@ -32,8 +32,18 @@ class PlaylistButton extends React.Component {
           contentLabel="Modal"
           style={modalStyle}>
 
-          <h1>Add to Playlist</h1>
-          <h1>Create a Playlist</h1>
+          <section className="playlist-form">
+            <h1 className={ this.state.formType === "add" ? "active" : "" }
+              onClick={ () => this.setState({ formType: "add" }) }>
+              Add to Playlist
+            </h1>
+            <h1 className={ this.state.formType === "create" ? "active" : "" } 
+              onClick={ () => this.setState({ formType: "create" }) }>
+              Create a Playlist
+            </h1>
+          </section>
+
+
           <PlaylistFormContainer
             closeModal={this.closeModal.bind(this)}
             trackId={this.props.trackId}
