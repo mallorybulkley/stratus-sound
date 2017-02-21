@@ -25,9 +25,12 @@ export const fetchPlaylist = (id) => (dispatch) => (
     .then(playlist => dispatch(receivePlaylist(playlist)))
 );
 
-export const createPlaylist = (playlist) => (dispatch) => (
+export const createPlaylist = (playlist, trackId) => (dispatch) => (
   PlaylistApiUtil.createPlaylist(playlist)
-    .then(playlist => dispatch(receivePlaylist(playlist)),
+    .then(playlist => {
+      PlaylistApiUtil.addTrackToPlaylist(playlist.id, trackId);
+      dispatch(receiveNewPlaylist(playlist));
+      },
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 );
 

@@ -37,7 +37,13 @@ class PlaylistForm extends React.Component {
         <section className="playlist-form">
           <label>Playlist Title
             <input type="text" value={ this.state.title } onChange={ this.updateTitle.bind(this) }/>
-              <button onClick={ () => this.props.createPlaylist(this.state) } className="small orange">Save</button>
+              <button onClick={ () => {
+                this.props.createPlaylist(this.state, this.props.trackId);
+                this.props.closeModal();
+              } }
+                className="small orange">
+                Save
+              </button>
           </label>
         </section>
       )

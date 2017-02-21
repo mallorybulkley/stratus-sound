@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
+  createPlaylist: (playlist, trackId) => dispatch(createPlaylist(playlist, trackId)),
   addTrackToPlaylist: (playlistId, trackId) => dispatch(addTrackToPlaylist(playlistId, trackId))
 });
 
