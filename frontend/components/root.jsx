@@ -8,6 +8,7 @@ import SessionFormContainer from './session/session_form_container';
 import TrackFormContainer from './track/track_form_container';
 import TrackContainer from './track/track_container';
 import PlaylistContainer from './playlist/playlist_container';
+import UserProfileContainer from './user/user_profile_container';
 
 const _ensureLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.username;
@@ -31,6 +32,7 @@ const Root = ({ store }) => (
         <Route path="upload" component={ TrackFormContainer } onEnter={ _ensureLoggedIn } />
         <Route path="tracks/:trackId" component={ TrackContainer } />
         <Route path="playlists/:playlistId" component={ PlaylistContainer } />
+        <Route path="users/:userId" component={ UserProfileContainer } />
       </Route>
     </Router>
   </Provider>
