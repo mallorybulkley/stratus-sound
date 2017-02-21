@@ -19,3 +19,23 @@
   margin: 0;
   font-size: 14px;
 }
+
+.user-profile .header {
+  background: linear-gradient(270deg, #fff, #70929C);
+
+  ul {
+    left: 220px;
+    margin: 30px;
+  }
+
+  img {
+    border-radius: 50%;
+    border: 1px solid #000;
+    margin: 30px;
+  }
+}
+
+.user-nav {
+  display: flex;
+  margin: 25px;
+}
