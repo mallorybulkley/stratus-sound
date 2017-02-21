@@ -14,7 +14,7 @@ const PlaylistIndexItem = ({ track, playlistId, receiveCurrentTrack, togglePlay,
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
   return (
-    <ul className="playlist-tracks">
+    <ul className="playlist-tracks" onClick={ handleClick }>
       <li>
         <img src={track.photo_url}/>
       </li>
