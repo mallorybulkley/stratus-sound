@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchPlaylist: () => dispatch(fetchPlaylist(ownProps.params.playlistId)),
-  receiveCurrentTrack: (track) => dispatch(receiveCurrentTrack(track)),
+  receiveCurrentTrack: (track, playlistId) => dispatch(receiveCurrentTrack(track, playlistId)),
   togglePlay: () => dispatch(togglePlay()),
   deletePlaylistTrack: (playlistId, trackId) => dispatch(deletePlaylistTrack(playlistId, trackId)),
 });

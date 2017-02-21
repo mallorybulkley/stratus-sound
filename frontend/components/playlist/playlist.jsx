@@ -13,12 +13,12 @@ class Playlist extends React.Component {
     if (this.isPlaying()) {
       this.props.togglePlay();
     } else {
-      this.props.receiveCurrentTrack(this.props.playlist.tracks[0]);
+      this.props.receiveCurrentTrack(this.props.playlist.tracks[0], this.props.playlist.id);
     }
   }
 
   isPlaying () {
-    return this.props.currentTrack.playing && (
+    return this.props.currentTrack.playlistId === this.props.playlist.id && this.props.currentTrack.playing && (
       this.props.playlist.tracks.some(track => track.id === this.props.currentTrack.track.id));
   }
 

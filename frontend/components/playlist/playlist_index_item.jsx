@@ -6,11 +6,11 @@ const PlaylistIndexItem = ({ track, playlistId, receiveCurrentTrack, togglePlay,
     if (currentTrack) {
       togglePlay();
     } else {
-      receiveCurrentTrack(track);
+      receiveCurrentTrack(track, playlistId);
     }
   }
 
-  const togglePlayButton = (currentTrack && currentTrack.playing) ?
+  const togglePlayButton = (currentTrack && currentTrack.playing && currentTrack.playlistId === playlistId) ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
   return (
@@ -24,7 +24,7 @@ const PlaylistIndexItem = ({ track, playlistId, receiveCurrentTrack, togglePlay,
       </li>
 
       <li>
-        <Link to={`tracks/${track.id}`}>
+        <Link to={`tracks/${track.id}`} onClick={ (e) => e.stopPropagation() }>
           {track.user.username} - {track.name}
         </Link>
       </li>
