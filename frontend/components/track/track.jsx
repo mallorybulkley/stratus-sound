@@ -67,7 +67,7 @@ class Track extends React.Component {
 
         <section className="track-nav">
           <CommentFormContainer trackId={track.id} />
-          <PlaylistButton trackId={track.id} />
+          <PlaylistButton trackId={track.id} currentUser={ this.props.currentUser } />
         </section>
 
         <section className="about">

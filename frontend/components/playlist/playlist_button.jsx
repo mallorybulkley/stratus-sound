@@ -20,6 +20,8 @@ class PlaylistButton extends React.Component {
   }
 
   render () {
+    if (!this.props.currentUser.id) return (<div></div>);
+
     return (
       <section>
         <a className="add-button" onClick={() => this.openModal(this.state.formType) }>
