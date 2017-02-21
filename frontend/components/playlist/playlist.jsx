@@ -28,10 +28,12 @@ class Playlist extends React.Component {
     const tracks = this.props.playlist.tracks.map((track) => (
       <PlaylistIndexItem key={ track.id }
         track={ track }
+        playlistId={ this.props.playlist.id }
         receiveCurrentTrack={ this.props.receiveCurrentTrack }
         togglePlay={ this.props.togglePlay }
         currentTrack={ this.props.currentTrack.track && this.props.currentTrack.track.id === track.id ? this.props.currentTrack : false }
-        showDelete={ this.props.playlist.user_id === this.props.currentUser.id } />
+        showDelete={ this.props.playlist.user_id === this.props.currentUser.id }
+        deletePlaylistTrack={ this.props.deletePlaylistTrack } />
     ));
 
     const togglePlayButton = this.isPlaying() ?
