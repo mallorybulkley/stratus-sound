@@ -35,11 +35,22 @@ export const deletePlaylist = (id) => {
 
 export const addTrackToPlaylist = (playlistId, trackId) => {
   return $.ajax({
-    type: 'POST',
-    url: 'api/playlist_tracks',
+    type: 'PATCH',
+    url: `api/playlists/${playlistId}`,
     data: {
-      playlistId,
-      trackId
+      trackId,
+      type: "add"
+    }
+  })
+}
+
+export const deletePlaylistTrack = (playlistId, trackId) => {
+  return $.ajax({
+    type: 'PATCH',
+    url: `api/playlists/${playlistId}`,
+    data: {
+      trackId,
+      type: "delete"
     }
   })
 }

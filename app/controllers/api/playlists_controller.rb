@@ -20,6 +20,19 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
+  def update
+    @playlist = Playlist.find(params[:id])
+    track_id = params[:trackId].to_i
+
+    if params[:type] == "add"
+      @playlist.track_ids += [track_id]
+    else
+      @playlist.track_ids -= [track_id]
+    end
+
+    render :show
+  end
+
   def show
     @playlist = Playlist.find(params[:id])
   end
