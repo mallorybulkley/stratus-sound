@@ -123,3 +123,17 @@ tracks.each do |track|
     )
   end
 end
+
+10.times do
+  playlist = Playlist.create(
+    user: users.sample,
+    title: Faker::Book.title
+  )
+
+  rand(5..20).times do
+    PlaylistTrack.create(
+      playlist: playlist,
+      track: tracks.sample
+    )
+  end
+end
