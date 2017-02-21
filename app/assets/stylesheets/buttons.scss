@@ -14,7 +14,7 @@
   width: 36px;
   height: 36px;
   background-color: #F50;
-  border-radius: 33px;
+  border-radius: 50%;
   color: white;
   display: flex;
   align-items: center;
@@ -86,4 +86,16 @@
 
 .fa-trash-o:hover {
   color: black;
+}
+
+.add-button {
+  border: 1px solid #F2F2F2;
+  margin: 10px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.fa-list {
+  font-size: 11px;
+  padding: 5px;
 }

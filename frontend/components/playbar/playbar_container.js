@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Playbar from './playbar';
-import { fetchCurrentTrack, togglePlay } from '../../actions/current_track_actions';
+import { receiveCurrentTrack, togglePlay } from '../../actions/current_track_actions';
 
 const mapStateToProps = (state) => ({
   track: state.currentTrack.track,
-  playing: state.currentTrack.playing
+  playing: state.currentTrack.playing,
+  tracks: state.tracks
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCurrentTrack: (id) => dispatch(fetchCurrentTrack(id)),
+  receiveCurrentTrack: (track) => dispatch(receiveCurrentTrack(track)),
   togglePlay: () => dispatch(togglePlay())
 });
 

@@ -1,0 +1,121 @@
+// Place all the styles related to the api/playlists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.playlist .header {
+  display: flex;
+  justify-content: flex-end;
+  background: linear-gradient(270deg, #fff, #70929C);
+}
+
+.playlist img {
+  width: 340px;
+  height: 340px;
+  margin: 20px;
+}
+
+.playlist-tracks img {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+
+.playlist-main {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #F2F2F2;
+
+  ul {
+    display: flex;
+    align-items: center;
+    width: 670px;
+    position: relative;
+  }
+
+  ul:hover {
+    background-color: #F2F2F2;
+
+    button i {
+      color: black;
+    }
+  }
+}
+
+.playlist-track-list {
+  border-right: 1px solid #F2F2F2;
+  margin-top: 10px;
+}
+
+.extra.small-play {
+  display: inherit;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -7px;
+  left: -7px;
+}
+
+.extra.small-play i {
+  font-size: 11px;
+  left: 2px;
+}
+
+.playlist-form {
+  display: flex;
+}
+
+.playlist-form h1 {
+  padding: 0;
+  margin-right: 20px;
+  border-bottom: 1px solid #F2F2F2;
+  color: black;
+}
+
+h1.active {
+  border-bottom: 1px solid #F50;
+  color: #F50;
+}
+
+.playlist-form label {
+  margin-top: 20px;
+}
+
+.playlist-form input {
+  width: 350px;
+}
+
+.playlist-form ul {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.playlist-form li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.small.orange {
+  width: 50px;
+  font-size: 14px;
+  padding: 0;
+  height: 25px;
+  float: right;
+}
+
+.fa-trash-o:hover {
+  color: black;
+}
+
+.playlist-tracks button {
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 25px;
+  border: none;
+}

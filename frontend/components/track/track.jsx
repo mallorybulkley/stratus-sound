@@ -2,6 +2,8 @@ import React from 'react';
 import UserInfo from './user_info';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
+import PlaylistButton from '../playlist/playlist_button';
+import { Link } from 'react-router';
 
 class Track extends React.Component {
   constructor (props) {
@@ -10,13 +12,14 @@ class Track extends React.Component {
 
   componentWillMount () {
     this.props.fetchTrack();
+    this.props.fetchTrackPlaylists();
   }
 
   handleClick () {
     if (this.isCurrentTrack()) {
       this.props.togglePlay();
     } else {
-      this.props.fetchCurrentTrack(this.props.track.id);
+      this.props.receiveCurrentTrack(this.props.track);
     }
   }
 
@@ -31,9 +34,23 @@ class Track extends React.Component {
     const togglePlayButton = this.isCurrentTrack() && this.props.currentTrack.playing ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
+    const playlistList = (this.props.playlists instanceof Array ? this.props.playlists.map((playlist) => (
+      <ul key={playlist.id}>
+        <Link to={`playlists/${playlist.id}`}>
+          <li>
+            { playlist.username }
+          </li>
+          <li>
+            <h5>{ playlist.title }</h5>
+          </li>
+        </Link>
+      </ul>
+
+    )) : "");
+
     return (
       <section className="track">
-        <section className="header">
+        <section className="header" onClick={ this.handleClick.bind(this) } >
             <div className="play" onClick={ this.handleClick.bind(this) }>
               { togglePlayButton }
             </div>
@@ -48,7 +65,10 @@ class Track extends React.Component {
           <img src={track.photo_url}/>
         </section>
 
-        <CommentFormContainer trackId={track.id} />
+        <section className="track-nav">
+          <CommentFormContainer trackId={track.id} />
+          <PlaylistButton trackId={track.id} />
+        </section>
 
         <section className="about">
           <UserInfo userId={track.user.id} />
@@ -61,8 +81,10 @@ class Track extends React.Component {
           </ul>
 
           <section className="sidebar">
-            <h4>More Tracks</h4>
-            <div>more things will go here eventually</div>
+            <h4>In Playlists</h4>
+            <ul>
+              { playlistList }
+            </ul>
           </section>
         </section>
 

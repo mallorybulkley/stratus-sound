@@ -49,6 +49,7 @@ h2 {
     width: 670px;
     border-right: 1px solid #F2F2F2;
     margin: 25px;
+    position: relative;
   }
 
   li {
@@ -66,6 +67,12 @@ h4 {
   color: #ccc;
   font-weight: normal;
   border-bottom: 1px solid #F2F2F2;
+}
+
+.track-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 

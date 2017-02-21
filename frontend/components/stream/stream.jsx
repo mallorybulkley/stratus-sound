@@ -14,7 +14,7 @@ class Stream extends React.Component {
     const tracks = this.props.tracks.map((track) => (
       <StreamIndexItem key={ track.id }
         track={ track }
-        fetchCurrentTrack={ this.props.fetchCurrentTrack }
+        receiveCurrentTrack={ this.props.receiveCurrentTrack }
         togglePlay={ this.props.togglePlay }
         currentTrack={ currentTrack.track && currentTrack.track.id === track.id ? currentTrack : false } />
     ));

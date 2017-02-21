@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const StreamIndexItem = ({ track, fetchCurrentTrack, togglePlay, currentTrack }) => {
+const StreamIndexItem = ({ track, receiveCurrentTrack, togglePlay, currentTrack }) => {
   const handleClick = () => {
     if (currentTrack) {
       togglePlay();
     } else {
-      fetchCurrentTrack(track.id);
+      receiveCurrentTrack(track);
     }
   }
 
@@ -31,7 +31,9 @@ const StreamIndexItem = ({ track, fetchCurrentTrack, togglePlay, currentTrack })
            <h4>{track.user.username}</h4>
         </li>
         <li>
-          {track.name}
+          <Link to={`tracks/${track.id}`}>
+            {track.name}
+          </Link>
         </li>
       </ul>
 

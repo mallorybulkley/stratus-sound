@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Stream from './stream';
 import { fetchTracks } from '../../actions/tracks_actions';
-import { fetchCurrentTrack, togglePlay } from '../../actions/current_track_actions';
+import { receiveCurrentTrack, togglePlay } from '../../actions/current_track_actions';
 
 const mapStateToProps = (state) => ({
   tracks: state.tracks,
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTracks: () => dispatch(fetchTracks()),
-  fetchCurrentTrack: (id) => dispatch(fetchCurrentTrack(id)),
+  receiveCurrentTrack: (track) => dispatch(receiveCurrentTrack(track)),
   togglePlay: () => dispatch(togglePlay())
 });
 
