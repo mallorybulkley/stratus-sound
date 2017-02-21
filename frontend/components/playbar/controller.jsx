@@ -49,7 +49,7 @@ class Controller extends React.Component {
         <li onClick={ this.togglePlay }>
           { togglePlayButton }
         </li>
-        <li onClick={(e) => console.log(e)}>
+        <li onClick={ this.props.playNextTrack }>
           <i className="fa fa-step-forward" aria-hidden="true"/>
         </li>
 

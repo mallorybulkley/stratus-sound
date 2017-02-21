@@ -36,7 +36,12 @@ class Playbar extends React.Component {
           onEnded={ this.playNextTrack.bind(this) }
         />
 
-      <Controller audio={ this.audioTag } playing={this.props.playing} togglePlay={this.props.togglePlay} />
+        <Controller
+          audio={ this.audioTag }
+          playing={this.props.playing}
+          togglePlay={this.props.togglePlay}
+          playNextTrack={this.playNextTrack.bind(this)} />
+
         <ProgressBar audio={ this.audioTag }/>
 
         <div className="track-info">
