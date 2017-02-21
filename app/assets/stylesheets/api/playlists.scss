@@ -24,7 +24,7 @@
 .playlist-main {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid #F2F2F2;
 
   ul {
     display: flex;
@@ -34,7 +34,11 @@
   }
 
   ul:hover {
-    background-color: #eee;
+    background-color: #F2F2F2;
+
+    button i {
+      color: black;
+    }
   }
 }
 
@@ -64,7 +68,7 @@
 .playlist-form h1 {
   padding: 0;
   margin-right: 20px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #F2F2F2;
   color: black;
 }
 
@@ -98,4 +102,20 @@ h1.active {
   padding: 0;
   height: 25px;
   float: right;
+}
+
+.fa-trash-o:hover {
+  color: black;
+}
+
+.playlist-tracks button {
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 25px;
+  border: none;
 }

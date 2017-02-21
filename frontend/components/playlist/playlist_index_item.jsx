@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const PlaylistIndexItem = ({ track, receiveCurrentTrack, togglePlay, currentTrack }) => {
+const PlaylistIndexItem = ({ track, receiveCurrentTrack, togglePlay, currentTrack, showDelete }) => {
   const handleClick = () => {
     if (currentTrack) {
       togglePlay();
@@ -23,14 +23,17 @@ const PlaylistIndexItem = ({ track, receiveCurrentTrack, togglePlay, currentTrac
         { togglePlayButton }
       </li>
 
-      <ul>
+      <li>
+        <Link to={`tracks/${track.id}`}>
+          {track.user.username} - {track.name}
+        </Link>
+      </li>
 
-        <li>
-          <Link to={`tracks/${track.id}`}>
-            {track.user.username} - {track.name}
-          </Link>
-        </li>
-      </ul>
+      { showDelete ?
+        <button onClick={ () => console.log("delete") }>
+          <i className="fa fa-trash-o" aria-hidden="true"/>
+        </button>
+        : "" }
 
     </ul>
   );

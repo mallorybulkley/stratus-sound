@@ -18,7 +18,6 @@ class Playlist extends React.Component {
   }
 
   isPlaying () {
-    // debugger
     return this.props.currentTrack.playing && (
       this.props.playlist.tracks.some(track => track.id === this.props.currentTrack.track.id));
   }
@@ -31,7 +30,8 @@ class Playlist extends React.Component {
         track={ track }
         receiveCurrentTrack={ this.props.receiveCurrentTrack }
         togglePlay={ this.props.togglePlay }
-        currentTrack={ this.props.currentTrack.track && this.props.currentTrack.track.id === track.id ? this.props.currentTrack : false } />
+        currentTrack={ this.props.currentTrack.track && this.props.currentTrack.track.id === track.id ? this.props.currentTrack : false }
+        showDelete={ this.props.playlist.user_id === this.props.currentUser.id } />
     ));
 
     const togglePlayButton = this.isPlaying() ?
