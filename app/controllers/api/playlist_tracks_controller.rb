@@ -4,7 +4,8 @@ class Api::PlaylistTracksController < ApplicationController
       playlist_id: params[:playlistId],
       track_id: params[:trackId])
     if @playlist_track.save
-      render json: @playlist_track
+      @playlist = Playlist.find(params[:playlistId])
+      render 'api/playlists/show'
     else
       render json: { errors: @playlist_track.errors.full_messages }, status: 422
     end

@@ -15,7 +15,11 @@ class PlaylistForm extends React.Component {
       const playlists = this.props.currentUser.playlists.map((playlist) => (
         <li key={playlist.id}>
           { playlist.title }
-          <a className="add-button" onClick={() => this.props.addTrackToPlaylist(playlist.id, this.props.trackId) }>
+          <a className="add-button" onClick={() => {
+              this.props.addTrackToPlaylist(playlist.id, this.props.trackId);
+              this.props.closeModal();
+            }
+          }>
             Add to Playlist
           </a>
         </li>
