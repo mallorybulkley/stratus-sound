@@ -12,17 +12,17 @@ export const fetchPlaylist = (id) => {
   });
 };
 
-export const fetchUserPlaylists = (userId) => {
+export const fetchUserPlaylists = (user_id) => {
   return $.ajax({
     url: 'api/playlists',
-    data: { userId }
+    data: { user_id }
   });
 };
 
-export const fetchTrackPlaylists = (trackId) => {
+export const fetchTrackPlaylists = (track_id) => {
   return $.ajax({
     url: 'api/playlists',
-    data: { trackId }
+    data: { track_id }
   });
 };
 

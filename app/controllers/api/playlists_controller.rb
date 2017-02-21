@@ -3,7 +3,7 @@ class Api::PlaylistsController < ApplicationController
     if params[:user_id]
       @playlists = Playlist.where(user_id: params[:user_id])
     elsif params[:track_id]
-      @playlists = Playlist.joins(:playlist_tracks).where(track_id: params[:track_id])
+      @playlists = Playlist.joins(:playlist_tracks).where("playlist_tracks.track_id = ?", params[:track_id])
     else
       @playlists = Playlist.all
     end

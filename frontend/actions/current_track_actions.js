@@ -8,11 +8,11 @@ export const receiveCurrentTrack = (track) => ({
   track
 });
 
-export const fetchCurrentTrack = (id) => (dispatch) => (
-  TrackApiUtil.fetchTrack(id)
-    .then(track => dispatch(receiveCurrentTrack(track)),
-    data => dispatch(receiveErrors(data.responseJSON.errors)))
-);
+// export const receiveCurrentTrack = (id) => (dispatch) => (
+//   TrackApiUtil.fetchTrack(id)
+//     .then(track => dispatch(receiveCurrentTrack(track)),
+//     data => dispatch(receiveErrors(data.responseJSON.errors)))
+// );
 
 export const togglePlay = () => ({
   type: TOGGLE_PLAY

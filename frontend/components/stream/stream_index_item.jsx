@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const StreamIndexItem = ({ track, fetchCurrentTrack, togglePlay, currentTrack }) => {
+const StreamIndexItem = ({ track, receiveCurrentTrack, togglePlay, currentTrack }) => {
   const handleClick = () => {
     if (currentTrack) {
       togglePlay();
     } else {
-      fetchCurrentTrack(track.id);
+      receiveCurrentTrack(track);
     }
   }
 

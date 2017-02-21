@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Playlist from './playlist';
 import { fetchPlaylist } from '../../actions/playlist_actions';
-import { fetchCurrentTrack, togglePlay } from '../../actions/current_track_actions';
+import { receiveCurrentTrack, togglePlay } from '../../actions/current_track_actions';
 
 const mapStateToProps = (state) => ({
   playlist: state.playlist,
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchPlaylist: () => dispatch(fetchPlaylist(ownProps.params.playlistId)),
-  fetchCurrentTrack: (id) => dispatch(fetchCurrentTrack(id)),
+  receiveCurrentTrack: (track) => dispatch(receiveCurrentTrack(track)),
   togglePlay: () => dispatch(togglePlay())
 });
 

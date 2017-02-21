@@ -3,6 +3,7 @@ import UserInfo from './user_info';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import PlaylistButton from '../playlist/playlist_button';
+import { Link } from 'react-router';
 
 class Track extends React.Component {
   constructor (props) {
@@ -11,14 +12,14 @@ class Track extends React.Component {
 
   componentWillMount () {
     this.props.fetchTrack();
-    this.props.fetchPlaylistsIn(this.props.trackId);
+    this.props.fetchTrackPlaylists();
   }
 
   handleClick () {
     if (this.isCurrentTrack()) {
       this.props.togglePlay();
     } else {
-      this.props.fetchCurrentTrack(this.props.track.id);
+      this.props.receiveCurrentTrack(this.props.track);
     }
   }
 
@@ -33,17 +34,19 @@ class Track extends React.Component {
     const togglePlayButton = this.isCurrentTrack() && this.props.currentTrack.playing ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
-    const playlistsIn = this.playlistsIn.map((playlist) => (
-      <ul>
-        <li>
-          { playlist.user.username }
-        </li>
-        <li>
-          { playlist.title }
-        </li>
+    const playlistList = (this.props.playlists instanceof Array ? this.props.playlists.map((playlist) => (
+      <ul key={playlist.id}>
+        <Link to={`playlists/${playlist.id}`}>
+          <li>
+            { playlist.username }
+          </li>
+          <li>
+            <h5>{ playlist.title }</h5>
+          </li>
+        </Link>
       </ul>
 
-    ))
+    )) : "");
 
     return (
       <section className="track">
@@ -80,7 +83,7 @@ class Track extends React.Component {
           <section className="sidebar">
             <h4>In Playlists</h4>
             <ul>
-              { playlistsIn }
+              { playlistList }
             </ul>
           </section>
         </section>

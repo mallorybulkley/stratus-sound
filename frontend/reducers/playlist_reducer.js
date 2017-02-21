@@ -1,4 +1,4 @@
-import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
+import { RECEIVE_PLAYLIST, RECEIVE_PLAYLISTS } from '../actions/playlist_actions';
 
 const PlaylistReducer = (state = {}, action) => {
   Object.freeze(state);

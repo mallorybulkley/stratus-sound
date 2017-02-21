@@ -13,13 +13,14 @@ class Playlist extends React.Component {
     if (this.isPlaying()) {
       this.props.togglePlay();
     } else {
-      this.props.fetchCurrentTrack(this.props.playlist.tracks[0].id);
+      this.props.receiveCurrentTrack(this.props.playlist.tracks[0]);
     }
   }
 
   isPlaying () {
-    false
-    // return this.props.currentTrack.track && (this.props.playlist.tracks.includes(this.props.currentTrack.track.id);
+    // debugger
+    return this.props.currentTrack.playing && (
+      this.props.playlist.tracks.some(track => track.id === this.props.currentTrack.track.id));
   }
 
   render () {
@@ -28,7 +29,7 @@ class Playlist extends React.Component {
     const tracks = this.props.playlist.tracks.map((track) => (
       <PlaylistIndexItem key={ track.id }
         track={ track }
-        fetchCurrentTrack={ this.props.fetchCurrentTrack }
+        receiveCurrentTrack={ this.props.receiveCurrentTrack }
         togglePlay={ this.props.togglePlay }
         currentTrack={ this.props.currentTrack.track && this.props.currentTrack.track.id === track.id ? this.props.currentTrack : false } />
     ));
@@ -44,7 +45,7 @@ class Playlist extends React.Component {
           </div>
           <ul>
             <li>
-              <h3>{ this.props.playlist.user ? this.props.playlist.user.username : "" }</h3>
+              <h3>{ this.props.playlist.username ? this.props.playlist.username : "" }</h3>
             </li>
             <li>
               <h2>{ this.props.playlist.title }</h2>
@@ -54,10 +55,8 @@ class Playlist extends React.Component {
 
         </section>
 
-
-
         <section className="playlist-main">
-          <UserInfo userId={this.props.playlist.user.id} />
+          <UserInfo userId={this.props.playlist.user_id} />
 
           <section className="playlist-track-list">
             { tracks }
@@ -65,7 +64,9 @@ class Playlist extends React.Component {
 
           <section className="sidebar">
             <h4>More Tracks</h4>
-            <div>more things will go here eventually</div>
+            <ul>
+              ...more later...
+            </ul>
           </section>
         </section>
       </section>
