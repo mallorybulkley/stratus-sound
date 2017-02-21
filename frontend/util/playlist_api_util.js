@@ -25,13 +25,13 @@ export const deletePlaylist = (id) => {
   });
 };
 
-// export const addTrackToPlaylist = (playlistId, trackId) => {
-//   return $.ajax({
-//     type: 'POST',
-//     url: 'api/playlist_tracks',
-//     data: {
-//       playlistId,
-//       trackId
-//     }
-//   })
-// }
+export const addTrackToPlaylist = (playlistId, trackId) => {
+  return $.ajax({
+    type: 'POST',
+    url: 'api/playlist_tracks',
+    data: {
+      playlistId,
+      trackId
+    }
+  })
+}

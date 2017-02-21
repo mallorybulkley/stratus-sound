@@ -2,6 +2,7 @@ import React from 'react';
 import UserInfo from './user_info';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
+import PlaylistButton from '../playlist/playlist_button';
 
 class Track extends React.Component {
   constructor (props) {
@@ -48,7 +49,10 @@ class Track extends React.Component {
           <img src={track.photo_url}/>
         </section>
 
-        <CommentFormContainer trackId={track.id} />
+        <section className="track-nav">
+          <CommentFormContainer trackId={track.id} />
+          <PlaylistButton trackId={track.id} />
+        </section>
 
         <section className="about">
           <UserInfo userId={track.user.id} />
