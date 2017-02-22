@@ -1,12 +1,25 @@
 import React from 'react';
+import Modal from 'react-modal';
+import { profileModalStyle } from '../../util/modal_style.js';
 import PlaylistsIndex from './playlists_index';
 import TracksIndex from './tracks_index'
+import ProfileFormContainer from './profile_form_container';
 
 class UserProfile extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = { view: "tracks" };
+    this.state = { view: "tracks", modal: false };
+
+    Modal.setAppElement('#root');
+  }
+
+  openModal () {
+    this.setState({ modal: true });
+  }
+
+  closeModal(){
+    this.setState({ modal: false });
   }
 
   componentWillMount () {
@@ -40,14 +53,20 @@ class UserProfile extends React.Component {
         </section>
 
         <section className="user-nav">
-          <h1 className={ this.state.view === "tracks" ? "active" : "" }
-            onClick={ () => this.setState({ view: "tracks" }) }>
-            Tracks
-          </h1>
-          <h1 className={ this.state.view === "playlists" ? "active" : "" }
-            onClick={ () => this.setState({ view: "playlists" }) }>
-            Playlists
-          </h1>
+          <ul>
+            <h1 className={ this.state.view === "tracks" ? "active" : "" }
+              onClick={ () => this.setState({ view: "tracks" }) }>
+              Tracks
+            </h1>
+            <h1 className={ this.state.view === "playlists" ? "active" : "" }
+              onClick={ () => this.setState({ view: "playlists" }) }>
+              Playlists
+            </h1>
+          </ul>
+          <a className="edit-button" onClick={() => this.openModal() }>
+            <i className="fa fa-pencil" aria-hidden="true"/>
+            Edit
+          </a>
         </section>
 
         <section className="user-main">
@@ -70,6 +89,23 @@ class UserProfile extends React.Component {
             </ul>
           </section>
         </section>
+
+        <Modal isOpen={this.state.modal}
+          onRequestClose={this.closeModal.bind(this)}
+          contentLabel="Modal"
+          style={profileModalStyle}>
+
+          <section className="profile-form">
+            <h1>
+              Edit your Profile
+            </h1>
+          </section>
+
+
+          <ProfileFormContainer
+            closeModal={this.closeModal.bind(this)}
+            user={this.props.user} />
+        </Modal>
 
       </section>
     )

@@ -97,3 +97,16 @@ textarea {
   border: 1px solid #ccc;
   padding: 0 5px;
 }
+
+.profile-form h1 {
+  padding: 0;
+}
+
+section.profile.form {
+  display: flex;
+  margin-top: 20px;
+}
+
+.profile.image {
+    width: 225px;
+}

@@ -38,8 +38,13 @@
 
 .user-nav {
   display: flex;
+  justify-content: space-between;
   margin: 25px;
   border-bottom: 1px solid #F2F2F2;
+
+  ul {
+    display: flex;
+  }
 }
 
 
