@@ -1,15 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Comment = ({comment, deleteComment, showDelete}) => {
   return (
     <div key={comment.id}>
       <span className="photo">
-        <img className="comments photo" src={ comment.user.photo_url } />
+        <Link to={`users/${comment.user.id}`}>
+          <img className="comments photo" src={ comment.user.photo_url } />
+        </Link>
       </span>
 
       <ul>
         <li>
-          <h5>{ comment.user.username }</h5>
+          <Link to={`users/${comment.user.id}`}>
+            <h5>{ comment.user.username }</h5>
+          </Link>
         </li>
         <li>
           { comment.body }

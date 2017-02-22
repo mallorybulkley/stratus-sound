@@ -95,7 +95,14 @@
   cursor: pointer;
 }
 
-.fa-list {
+.edit-button {
+  border: 1px solid #F2F2F2;
+  margin: 10px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.fa-list, .fa-pencil {
   font-size: 11px;
   padding: 5px;
 }

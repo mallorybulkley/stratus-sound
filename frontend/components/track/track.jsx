@@ -36,14 +36,17 @@ class Track extends React.Component {
 
     const playlistList = (this.props.playlists instanceof Array ? this.props.playlists.map((playlist) => (
       <ul key={playlist.id}>
-        <Link to={`playlists/${playlist.id}`}>
           <li>
-            { playlist.username }
+            <Link to={`users/${playlist.user_id}`}>
+              { playlist.username }
+            </Link>
           </li>
+
           <li>
-            <h5>{ playlist.title }</h5>
+            <Link to={`playlists/${playlist.id}`}>
+              <h5>{ playlist.title }</h5>
+            </Link>
           </li>
-        </Link>
       </ul>
 
     )) : "");
@@ -56,7 +59,9 @@ class Track extends React.Component {
             </div>
           <ul>
             <li>
-              <h3>{ track.user ? track.user.username : "" }</h3>
+              <Link to={`users/${track.user.id}`} onClick={ (e) => e.stopPropagation()} >
+                <h3>{ track.user ? track.user.username : "" }</h3>
+              </Link>
             </li>
             <li>
               <h2>{ track.name }</h2>

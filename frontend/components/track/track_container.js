@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Track from './track';
 import { fetchTrack } from '../../actions/track_actions';
 import { fetchTrackPlaylists } from '../../actions/playlist_actions';
-import { receiveCurrentTrack,togglePlay } from '../../actions/current_track_actions';
+import { receiveCurrentTrack, togglePlay } from '../../actions/current_track_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   track: state.track,

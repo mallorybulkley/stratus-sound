@@ -3,6 +3,8 @@ class Api::TracksController < ApplicationController
     if params[:playlistId]
       @tracks = Playlist.find(params[:playlistId]).tracks.includes(:user)
       # @tracks = Track.joins(:playlists).includes(:user).where("playlist_id = ?", params[:playlistId])
+    elsif params[:userId]
+      @tracks = User.find(params[:userId]).tracks.includes(:user)
     else
       @tracks = Track.all.includes(:user)
     end

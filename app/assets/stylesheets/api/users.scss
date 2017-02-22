@@ -19,3 +19,46 @@
   margin: 0;
   font-size: 14px;
 }
+
+.user-profile .header {
+  background: linear-gradient(270deg, #fff, #70929C);
+
+  ul {
+    left: 250px;
+    margin: 30px;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 30px;
+  }
+}
+
+.user-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px;
+  border-bottom: 1px solid #F2F2F2;
+
+  ul {
+    display: flex;
+  }
+}
+
+
+.user-track-list {
+  margin: 0 25px;
+  width: 820px;
+  border-right: 1px solid #F2F2F2;
+
+  h4 {
+    border: none;
+  }
+}
+
+.user-main {
+  display: flex;
+  justify-content: space-between;
+}

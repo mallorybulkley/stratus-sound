@@ -124,6 +124,9 @@ tracks.each do |track|
   end
 end
 
+Playlist.destroy_all
+PlaylistTrack.destroy_all
+
 10.times do
   playlist = Playlist.create(
     user: users.sample,
