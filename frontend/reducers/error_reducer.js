@@ -8,7 +8,7 @@ const ErrorReducer = (state = [], action) => {
 
   switch (action.type) {
     case RECEIVE_ERRORS:
-      return state.concat(action.errors);
+      return action.errors;
     case CLEAR_ERRORS:
     case RECEIVE_TRACK:
     case RECEIVE_CURRENT_USER:
