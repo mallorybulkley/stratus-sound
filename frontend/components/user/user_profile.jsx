@@ -65,10 +65,13 @@ class UserProfile extends React.Component {
               Playlists
             </h1>
           </ul>
-          <a className="edit-button" onClick={() => this.openModal() }>
-            <i className="fa fa-pencil" aria-hidden="true"/>
-            Edit
-          </a>
+
+          { this.props.currentUser.id === this.props.user.id ?
+            ( <a className="edit-button" onClick={() => this.openModal() }>
+                <i className="fa fa-pencil" aria-hidden="true"/>
+                Edit
+              </a>
+            ) : "" }
         </section>
 
         <section className="user-main">
@@ -102,7 +105,6 @@ class UserProfile extends React.Component {
               Edit your Profile
             </h1>
           </section>
-
 
           <ProfileFormContainer
             closeModal={this.closeModal.bind(this)}

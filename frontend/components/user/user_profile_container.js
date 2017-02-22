@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
   user: state.user,
   tracks: state.tracks,
   playlist: state.playlist,
-  currentTrack: state.currentTrack
+  currentTrack: state.currentTrack,
+  currentUser: state.session
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
