@@ -12,7 +12,7 @@ class PlaylistIndex extends React.Component {
     ));
 
     return (
-      <ul>
+      <ul className="playlist-list">
         { playlists }
       </ul>
     )

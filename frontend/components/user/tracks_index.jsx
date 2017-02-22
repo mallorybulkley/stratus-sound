@@ -1,17 +1,21 @@
 import React from 'react';
-import TrackIndexItem from './track_index_item';
+import StreamIndexItem from '../stream/stream_index_item';
 
 class TracksIndex extends React.Component {
   render () {
     if (!this.props.tracks) return (<div></div>);
 
-    const trackItems = this.props.tracks.map((track) => (
-      <TrackIndexItem track={ track } key={track.id}/>
+    const tracks = this.props.tracks.map((track) => (
+      <StreamIndexItem key={ track.id }
+        track={ track }
+        receiveCurrentTrack={ this.props.receiveCurrentTrack }
+        togglePlay={ this.props.togglePlay }
+        currentTrack={ this.props.currentTrack.track && this.props.currentTrack.track.id === track.id ? this.props.currentTrack : false } />
     ));
 
     return (
-      <section className="playlist-track-list">
-        { trackItems }
+      <section className="user-track-list">
+        { tracks }
       </section>
     )
   }

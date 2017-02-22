@@ -48,7 +48,11 @@ class UserProfile extends React.Component {
         </section>
 
         { this.state.view === "tracks" ?
-          <TracksIndex tracks={this.props.tracks} /> :
+          <TracksIndex
+            tracks={this.props.tracks}
+            togglePlay={this.props.togglePlay}
+            currentTrack={this.props.currentTrack}
+            receiveCurrentTrack={this.props.receiveCurrentTrack} /> :
             <PlaylistsIndex playlists={this.props.playlist}/>
         }
 
