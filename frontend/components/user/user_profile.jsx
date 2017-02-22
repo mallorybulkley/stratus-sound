@@ -24,10 +24,12 @@ class UserProfile extends React.Component {
 
   componentWillMount () {
     this.props.fetchUser();
+    this.props.fetchUserTracks();
+    this.props.fetchUserPlaylists();
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.user.id !== this.props.user.id) {
+    if (nextProps.params.userId != this.props.user.id) {
       this.props.fetchUser();
       this.props.fetchUserTracks();
       this.props.fetchUserPlaylists();
