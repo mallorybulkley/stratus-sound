@@ -7,8 +7,29 @@ class ProfileForm extends React.Component {
     // const defaultState = { location: "", bio: "", photoFile: null, photoUrl: null };
     this.state = this.props.user
 
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.updatePhoto = this.updatePhoto.bind(this);
+    this.constructUser = this.constructUser.bind(this);
+  }
+
+  constructUser () {
+    var formData = new FormData();
+
+    formData.append("user[username]", this.state.username);
+    formData.append("user[location]", this.state.location);
+    formData.append("user[bio]", this.state.bio);
+
+    if (this.state.photoFile) {
+      formData.append("user[photo]", this.state.photoFile);
+    }
+
+    return formData;
+  }
+
+  handleSubmit (e) {
+    e.preventDefault();
+    this.props.updateUser(this.state.id, this.constructUser());
+    this.props.closeModal();
   }
 
   updateProperty (property) {
@@ -52,6 +73,7 @@ class ProfileForm extends React.Component {
               value={ this.state.location ? this.state.location : "" }
               onChange={this.updateProperty("location")} />
           </label>
+
           <label>Bio
             <textarea
               value={this.state.bio ? this.state.bio : "" }
