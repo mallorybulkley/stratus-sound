@@ -50,17 +50,26 @@ class UserProfile extends React.Component {
           </h1>
         </section>
 
-        { this.state.view === "tracks" ?
-          <TracksIndex
-            tracks={this.props.tracks}
-            togglePlay={this.props.togglePlay}
-            currentTrack={this.props.currentTrack}
-            receiveCurrentTrack={this.props.receiveCurrentTrack} /> :
-            <PlaylistsIndex
-              playlists={this.props.playlist}
+        <section className="user-main">
+          { this.state.view === "tracks" ?
+            <TracksIndex
+              tracks={this.props.tracks}
+              togglePlay={this.props.togglePlay}
               currentTrack={this.props.currentTrack}
-              receiveCurrentTrack={this.props.receiveCurrentTrack} />
-        }
+              receiveCurrentTrack={this.props.receiveCurrentTrack} /> :
+              <PlaylistsIndex
+                playlists={this.props.playlist}
+                currentTrack={this.props.currentTrack}
+                receiveCurrentTrack={this.props.receiveCurrentTrack} />
+          }
+
+          <section className="sidebar">
+            <h4>Bio</h4>
+            <ul>
+              { user.bio }
+            </ul>
+          </section>
+        </section>
 
       </section>
     )

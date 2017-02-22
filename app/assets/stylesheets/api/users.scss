@@ -39,13 +39,21 @@
 .user-nav {
   display: flex;
   margin: 25px;
+  border-bottom: 1px solid #F2F2F2;
 }
 
 
 .user-track-list {
-  margin: 25px;
+  margin: 0 25px;
+  width: 820px;
+  border-right: 1px solid #F2F2F2;
 
   h4 {
     border: none;
   }
+}
+
+.user-main {
+  display: flex;
+  justify-content: space-between;
 }
