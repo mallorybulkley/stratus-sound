@@ -43,7 +43,7 @@ class Playlist extends React.Component {
     return (
       <section className="playlist">
         <section className="header" onClick={ this.handleClick.bind(this) } >
-          <div className="play" onClick={ this.handleClick.bind(this) }>
+          <div className="play">
             { togglePlayButton }
           </div>
           <ul>
