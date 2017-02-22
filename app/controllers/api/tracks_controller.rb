@@ -23,6 +23,15 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  def update
+    @track = Track.find(params[:id])
+    if @track.update_attributes(track_params)
+      render :show
+    else
+      render json: { errors: @track.errors.full_messages }, status: 422
+    end
+  end
+
   def destroy
     @track = Track.find(params[:id])
     if @track.destroy

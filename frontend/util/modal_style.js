@@ -49,3 +49,30 @@ export const profileModalStyle = {
     backgroundColor            : '#ffffff'
   }
 };
+
+
+export const trackModalStyle = {
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+  },
+  content : {
+    position                   : 'absolute',
+    top                        : '10%',
+    left                       : '10%',
+    right                      : '',
+    bottom                     : '',
+    border                     : '1px solid #ccc',
+    background                 : '#fffff',
+    overflow                   : 'auto',
+    WebkitOverflowScrolling    : 'touch',
+    borderRadius               : '4px',
+    outline                    : 'none',
+    padding                    : '20px',
+    backgroundColor            : '#ffffff'
+  }
+};
