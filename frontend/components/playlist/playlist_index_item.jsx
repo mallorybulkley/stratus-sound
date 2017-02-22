@@ -3,14 +3,14 @@ import { Link } from 'react-router';
 
 const PlaylistIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, currentTrack, showDelete, deletePlaylistTrack }) => {
   const handleClick = () => {
-    if (currentTrack) {
+    if (currentTrack.track && currentTrack.track.id === track.id) {
       togglePlay();
     } else {
       receiveCurrentTrack(track, queue);
     }
   }
 
-  const togglePlayButton = (currentTrack && currentTrack.playing && currentTrack.id === track.id) ?
+  const togglePlayButton = (currentTrack.track && currentTrack.playing && currentTrack.track.id === track.id) ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
   return (
@@ -19,7 +19,7 @@ const PlaylistIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curr
         <img src={track.photo_url}/>
       </li>
 
-      <li className="extra small-play" onClick={ handleClick }>
+      <li className="extra small-play">
         { togglePlayButton }
       </li>
 

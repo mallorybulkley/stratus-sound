@@ -32,7 +32,7 @@ class Playlist extends React.Component {
         queue={ this.props.playlist.tracks }
         receiveCurrentTrack={ this.props.receiveCurrentTrack }
         togglePlay={ this.props.togglePlay }
-        currentTrack={ this.props.currentTrack.track && this.props.currentTrack.track.id === track.id ? this.props.currentTrack : false }
+        currentTrack={ this.props.currentTrack }
         showDelete={ this.props.playlist.user_id === this.props.currentUser.id }
         deletePlaylistTrack={ this.props.deletePlaylistTrack } />
     ));
