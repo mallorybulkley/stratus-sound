@@ -79,7 +79,7 @@ class ProfileForm extends React.Component {
               value={this.state.bio ? this.state.bio : "" }
               onChange={this.updateProperty("bio")} />
           </label>
-          <button onClick={this.handleSubmit} className="orange">Save changes</button>
+          <button onClick={this.handleSubmit} className="save-changes">Save changes</button>
         </form>
       </section>
     )

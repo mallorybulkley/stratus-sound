@@ -49,9 +49,9 @@ button {
   justify-content: center;
 
   button {
-    width: auto;
     margin: 0 5px;
   }
+
   a {
     display: inline;
   }
@@ -108,5 +108,30 @@ section.profile.form {
 }
 
 .profile.image {
-    width: 225px;
+  width: 225px;
+}
+
+.save-changes {
+  width: auto;
+  font-size: 14px;
+  padding: 5px;
+  height: 30px;
+  float: right;
+  align-items: baseline;
+}
+
+.comments h5:hover, a h4:hover {
+  color: #333333;
+}
+
+.sidebar a:hover {
+  color: #333333;
+}
+
+.sidebar h5:hover {
+  color: #F50;
+}
+
+a h3:hover {
+  color: #FFFFFF;
 }
