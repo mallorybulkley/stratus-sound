@@ -14,12 +14,12 @@ class Playlist extends React.Component {
     if (this.isPlaying()) {
       this.props.togglePlay();
     } else {
-      this.props.receiveCurrentTrack(this.props.playlist.tracks[0], this.props.playlist.id);
+      this.props.receiveCurrentTrack(this.props.playlist.tracks[0], this.props.playlist.tracks);
     }
   }
 
   isPlaying () {
-    return this.props.currentTrack.playlistId === this.props.playlist.id && this.props.currentTrack.playing && (
+    return this.props.currentTrack.queue === this.props.playlist.tracks && this.props.currentTrack.playing && (
       this.props.playlist.tracks.some(track => track.id === this.props.currentTrack.track.id));
   }
 
@@ -29,7 +29,7 @@ class Playlist extends React.Component {
     const tracks = this.props.playlist.tracks.map((track) => (
       <PlaylistIndexItem key={ track.id }
         track={ track }
-        playlistId={ this.props.playlist.id }
+        queue={ this.props.playlist.tracks }
         receiveCurrentTrack={ this.props.receiveCurrentTrack }
         togglePlay={ this.props.togglePlay }
         currentTrack={ this.props.currentTrack.track && this.props.currentTrack.track.id === track.id ? this.props.currentTrack : false }

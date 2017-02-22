@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const PlaylistIndexItem = ({ track, playlistId, receiveCurrentTrack, togglePlay, currentTrack, showDelete, deletePlaylistTrack }) => {
+const PlaylistIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, currentTrack, showDelete, deletePlaylistTrack }) => {
   const handleClick = () => {
     if (currentTrack) {
       togglePlay();
     } else {
-      receiveCurrentTrack(track, playlistId);
+      receiveCurrentTrack(track, queue);
     }
   }
 
-  const togglePlayButton = (currentTrack && currentTrack.playing && currentTrack.playlistId === playlistId) ?
+  const togglePlayButton = (currentTrack && currentTrack.playing && currentTrack.id === track.id) ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
 
   return (

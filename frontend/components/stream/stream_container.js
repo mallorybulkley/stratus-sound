@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTracks: () => dispatch(fetchTracks()),
-  receiveCurrentTrack: (track) => dispatch(receiveCurrentTrack(track)),
+  receiveCurrentTrack: (track, queue) => dispatch(receiveCurrentTrack(track, queue)),
   togglePlay: () => dispatch(togglePlay())
 });
 

@@ -3,10 +3,10 @@ export const TOGGLE_PLAY = "TOGGLE_PLAY";
 import * as TrackApiUtil from '../util/track_api_util';
 import { receiveErrors } from './error_actions';
 
-export const receiveCurrentTrack = (track, playlistId) => ({
+export const receiveCurrentTrack = (track, queue) => ({
   type: RECEIVE_CURRENT_TRACK,
   track,
-  playlistId
+  queue
 });
 
 export const togglePlay = () => ({

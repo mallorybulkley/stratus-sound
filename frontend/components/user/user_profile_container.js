@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchUser: () => dispatch(fetchUser(ownProps.params.userId)),
-  receiveCurrentTrack: (track, playlistId) => dispatch(receiveCurrentTrack(track, playlistId)),
+  receiveCurrentTrack: (track, queue) => dispatch(receiveCurrentTrack(track, queue)),
   togglePlay: () => dispatch(togglePlay()),
   fetchUserPlaylists: () => dispatch(fetchUserPlaylists(ownProps.params.userId)),
   fetchUserTracks: () => dispatch(fetchUserTracks(ownProps.params.userId))

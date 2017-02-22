@@ -13,9 +13,9 @@ class PlaylistIndex extends React.Component {
             </Link>
           </li>
 
-          <li className="small-play" onClick={ () => this.props.receiveCurrentTrack(playlist.firstTrack, playlist.id) }>
+          <li className="small-play" onClick={ () => this.props.receiveCurrentTrack(playlist.tracks[0], playlist.tracks) }>
             {
-              (this.props.currentTrack.playlistId === playlist.id && this.props.currentTrack.playing) ?
+              (this.props.currentTrack.queue === playlist.tracks && this.props.currentTrack.playing) ?
               (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> )
             }
           </li>

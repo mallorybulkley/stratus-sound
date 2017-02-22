@@ -17,8 +17,8 @@ class Playbar extends React.Component {
   }
 
   playNextTrack () {
-    const currentIndex = this.props.tracks.findIndex(track => track.id === this.props.track.id);
-    this.props.receiveCurrentTrack(this.props.tracks[currentIndex + 1]);
+    const currentIndex = this.props.queue.findIndex(track => track.id === this.props.track.id);
+    this.props.receiveCurrentTrack(this.props.queue[currentIndex + 1]);
   }
 
   render () {
@@ -28,7 +28,7 @@ class Playbar extends React.Component {
     return (
       <section className="playbar">
 
-        <audio autoPlay preload="auto" src={track.audio_url} type="audio/mpeg"
+        <audio id='audio' autoPlay preload="auto" src={track.audio_url} type="audio/mpeg"
           ref={ (tag) => this.audioTag = tag }
           onTimeUpdate={ this.updateProgress.bind(this) }
           onEnded={ this.playNextTrack.bind(this) }
