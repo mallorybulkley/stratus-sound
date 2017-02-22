@@ -28,7 +28,9 @@ const StreamIndexItem = ({ track, receiveCurrentTrack, togglePlay, currentTrack 
       <ul>
 
         <li>
-           <h4>{track.user.username}</h4>
+          <Link to={`users/${track.user.id}`}>
+            <h4>{track.user.username}</h4>
+          </Link>
         </li>
         <li>
           <Link to={`tracks/${track.id}`}>

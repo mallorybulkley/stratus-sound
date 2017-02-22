@@ -8,7 +8,7 @@ const RightNavLoggedIn = ({currentUser, logout}) => (
     </li>
 
     <li>
-      <Link>{currentUser.username}</Link>
+      <Link to={`users/${currentUser.id}`}>{currentUser.username}</Link>
     </li>
 
     <li>

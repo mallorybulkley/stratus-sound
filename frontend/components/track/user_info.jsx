@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchUser } from '../../actions/user_actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 class UserInfo extends React.Component {
   componentDidMount () {
@@ -18,10 +19,12 @@ class UserInfo extends React.Component {
     if (user.id !== this.props.userId) return (<div></div>);
 
     return (
-      <div className="info">
-        <img src={user.photo_url} />
-        <h5>{user.username}</h5>
-      </div>
+      <Link to={`users/${user.id}`}>
+        <div className="info">
+            <img src={user.photo_url} />
+            <h5>{user.username}</h5>
+        </div>
+      </Link>
     )
   }
 }
