@@ -10,6 +10,10 @@
   margin-left: 40px;
 }
 
+.active .fa-repeat {
+  color: #F50;
+}
+
 .small-play {
   width: 36px;
   height: 36px;
@@ -23,6 +27,10 @@
   position: relative;
   top: -18px;
   cursor: pointer;
+}
+
+.small-play:hover {
+  background-color: #F30;
 }
 
 .small-play i {
@@ -49,6 +57,10 @@
   position: absolute;
   left: 50px;
   cursor: pointer;
+}
+
+.play:hover {
+  background-color: #F30;
 }
 
 .play i {

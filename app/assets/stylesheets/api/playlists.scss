@@ -6,6 +6,7 @@
   display: flex;
   justify-content: flex-end;
   background: linear-gradient(270deg, #fff, #70929C);
+  position: relative;
 }
 
 .playlist img {
@@ -19,7 +20,6 @@
   height: 30px;
   margin: 10px;
 }
-
 
 .playlist-main {
   display: flex;

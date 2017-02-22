@@ -6,6 +6,7 @@ class Controller extends React.Component {
 
     this.restartAudio = this.restartAudio.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
+    this.toggleLoop = this.toggleLoop.bind(this);
 
     document.body.addEventListener('keypress', (e) => {
       if (e.key === " " && (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") ) {
@@ -35,6 +36,10 @@ class Controller extends React.Component {
     this.props.togglePlay();
   }
 
+  toggleLoop () {
+    this.props.audio.loop = !this.props.audio.loop;
+  }
+
   render () {
     if (!this.props.audio) return null;
 
@@ -53,7 +58,7 @@ class Controller extends React.Component {
           <i className="fa fa-step-forward" aria-hidden="true"/>
         </li>
 
-        <li>
+        <li onClick={ this.toggleLoop } className={ this.props.audio.loop === true ? "active" : "" }>
           <i className="fa fa-repeat" aria-hidden="true"/>
         </li>
       </ul>

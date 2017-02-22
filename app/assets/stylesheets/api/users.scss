@@ -46,8 +46,11 @@
   ul {
     display: flex;
   }
-}
 
+  h1 {
+    cursor: pointer;
+  }
+}
 
 .user-track-list {
   margin: 0 25px;

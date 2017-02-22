@@ -52,7 +52,9 @@ class Playbar extends React.Component {
               </Link>
             </li>
             <li>
-              { track.name }
+              <Link to={`tracks/${track.id}`}>
+                { track.name }
+              </Link>
             </li>
           </ul>
         </div>
