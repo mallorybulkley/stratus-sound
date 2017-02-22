@@ -46,7 +46,7 @@ class Track extends React.Component {
 
   render () {
     const track = this.props.track;
-    if (!track.id) return (<div></div>);
+    if (!track || !track.id) return (<div></div>);
 
     const togglePlayButton = this.isCurrentTrack() && this.props.currentTrack.playing ?
     (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
