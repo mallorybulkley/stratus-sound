@@ -8,6 +8,16 @@ export const uploadTrack = (track) => {
   });
 };
 
+export const updateTrack = (trackId, track) => {
+  return $.ajax({
+    type: 'PATCH',
+    url: `api/tracks/${trackId}`,
+    contentType: false,
+    processData: false,
+    data: track
+  });
+};
+
 export const fetchTracks = () => {
   return $.ajax({
     url: 'api/tracks',

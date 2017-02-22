@@ -18,3 +18,14 @@ export const uploadTrack = (track) => (dispatch) => (
     .then(track => dispatch(receiveTrack(track)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 );
+
+export const updateTrack = (trackId, track) => (dispatch) => (
+  TrackApiUtil.updateTrack(trackId, track)
+    .then(track => dispatch(receiveTrack(track)),
+      data => dispatch(receiveErrors(data.responseJSON.errors)))
+);
+
+export const deleteTrack = (id) => (dispatch) => (
+  TrackApiUtil.deleteTrack(id)
+    .then(() => dispatch(receiveTrack(null)))
+);

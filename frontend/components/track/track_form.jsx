@@ -26,8 +26,10 @@ class TrackForm extends React.Component {
       description: "",
       audioFile: null,
       photoFile: null,
-      photoUrl: null
+      photo_url: null
     };
+
+    if (this.props.track) this.state = this.props.track;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updatePhoto = this.updatePhoto.bind(this);
@@ -57,10 +59,16 @@ class TrackForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    this.props.uploadTrack(this.createTrack())
-      .then(() => {
-        this.props.router.push('/');
+
+    if (this.props.track) {
+      this.props.updateTrack(this.props.track.id, this.createTrack());
+      this.props.closeModal();
+    } else {
+      this.props.uploadTrack(this.createTrack())
+      .then((track) => {
+        this.props.router.push(`tracks/${track.track.id}`);
       });
+    }
   }
 
   updateAudio (e) {
@@ -81,7 +89,7 @@ class TrackForm extends React.Component {
     const fileReader = new FileReader();
 
     fileReader.onloadend = () => {
-      this.setState({ photoFile: photo, photoUrl: fileReader.result });
+      this.setState({ photoFile: photo, photo_url: fileReader.result });
     };
 
     if (photo) {
@@ -104,13 +112,15 @@ class TrackForm extends React.Component {
       <option value={genre} key={idx}>{genre}</option>
     ))
 
+    const text = this.props.track ? "Edit Track" : "Upload to StratusSound";
+
     return (
       <section className="upload">
-        <header>Upload to StratusSound</header>
+        <header>{text}</header>
 
         <section className="upload form">
           <section className="image">
-            <img src={this.state.photoUrl} />
+            <img src={this.state.photo_url} />
             <input type="file"
             onChange={this.updatePhoto} />
           </section>
