@@ -1,6 +1,6 @@
 .nav {
   background-color: #333333;
-  color: #F2F2F2;
+  color: #CCCCCC;
   margin: 0 auto;
   font-size: 14px;
 }
@@ -32,6 +32,7 @@
   background: linear-gradient(#f70,#f30);
   text-transform: uppercase;
   font-weight: bold;
+  color: #FFFFFF;
 }
 
 .orange {
@@ -61,4 +62,8 @@ ul.right {
 
 .border a {
   border: 1px solid #F2F2F2;
+}
+
+.nav a:hover {
+  color: #FFFFFF;
 }

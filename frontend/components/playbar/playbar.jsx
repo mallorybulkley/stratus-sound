@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import ProgressBar from './progress_bar';
 import Controller from './controller';
 import { formatDuration } from '../../util/format_util';
@@ -46,7 +47,9 @@ class Playbar extends React.Component {
           <img src={ track.photo_url } />
           <ul>
             <li>
-              <h4>{ track.user.username }</h4>
+              <Link to={`users/${track.user.id}`}>
+                <h4>{ track.user.username }</h4>
+              </Link>
             </li>
             <li>
               { track.name }
