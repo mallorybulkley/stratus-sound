@@ -23,9 +23,7 @@ class Playbar extends React.Component {
 
   render () {
     const track = this.props.track;
-    if (!track) return (<div></div>);
-
-    if (!track.user) { debugger };
+    if (!track || !track.user) return (<div></div>);
 
     return (
       <section className="playbar">

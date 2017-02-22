@@ -53,7 +53,10 @@ class UserProfile extends React.Component {
             togglePlay={this.props.togglePlay}
             currentTrack={this.props.currentTrack}
             receiveCurrentTrack={this.props.receiveCurrentTrack} /> :
-            <PlaylistsIndex playlists={this.props.playlist}/>
+            <PlaylistsIndex
+              playlists={this.props.playlist}
+              currentTrack={this.props.currentTrack}
+              receiveCurrentTrack={this.props.receiveCurrentTrack} />
         }
 
       </section>

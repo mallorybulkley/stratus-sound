@@ -6,14 +6,18 @@ class PlaylistIndex extends React.Component {
     if (!this.props.playlists) return (<div></div>);
 
     const playlists = this.props.playlists.map((playlist) => (
-      <Link to={`playlists/${playlist.id}`} key={playlist.id}>
-        <ul className="stream-tracks">
+        <ul className="stream-tracks" key={playlist.id}>
           <li>
-            <img src={playlist.photo_url}/>
+            <Link to={`playlists/${playlist.id}`} key={playlist.id}>
+              <img src={playlist.photo_url}/>
+            </Link>
           </li>
 
-          <li className="small-play">
-            ( <i className="fa fa-play" aria-hidden="true"/> )
+          <li className="small-play" onClick={ () => this.props.receiveCurrentTrack(playlist.firstTrack, playlist.id) }>
+            {
+              (this.props.currentTrack.playlistId === playlist.id && this.props.currentTrack.playing) ?
+              (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> )
+            }
           </li>
 
           <ul>
@@ -21,12 +25,13 @@ class PlaylistIndex extends React.Component {
                <h4>{playlist.username}</h4>
             </li>
             <li>
-              {playlist.title}
+              <Link to={`playlists/${playlist.id}`} key={playlist.id}>
+                {playlist.title}
+              </Link>
             </li>
           </ul>
 
         </ul>
-      </Link>
     ));
 
     return (
