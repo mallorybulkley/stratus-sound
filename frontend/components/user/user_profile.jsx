@@ -32,6 +32,9 @@ class UserProfile extends React.Component {
             <li>
               <h2>{ user ? user.username : "" }</h2>
             </li>
+            <li>
+              <h3>{ user ? user.location : "" }</h3>
+            </li>
           </ul>
           <img src={user ? user.photo_url : "" }/>
         </section>
