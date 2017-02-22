@@ -7,12 +7,30 @@ class PlaylistIndex extends React.Component {
 
     const playlists = this.props.playlists.map((playlist) => (
       <Link to={`playlists/${playlist.id}`} key={playlist.id}>
-        <li>{ playlist.title }</li>
+        <ul className="stream-tracks">
+          <li>
+            <img src={playlist.photo_url}/>
+          </li>
+
+          <li className="small-play">
+            ( <i className="fa fa-play" aria-hidden="true"/> )
+          </li>
+
+          <ul>
+            <li>
+               <h4>{playlist.username}</h4>
+            </li>
+            <li>
+              {playlist.title}
+            </li>
+          </ul>
+
+        </ul>
       </Link>
     ));
 
     return (
-      <ul className="playlist-list">
+      <ul className="user-track-list">
         { playlists }
       </ul>
     )
