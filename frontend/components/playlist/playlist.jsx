@@ -1,6 +1,7 @@
 import React from 'react';
 import PlaylistIndexItem from './playlist_index_item';
 import UserInfo from '../track/user_info';
+import { Link } from 'react-router';
 
 class Playlist extends React.Component {
   constructor (props) {
@@ -47,7 +48,9 @@ class Playlist extends React.Component {
           </div>
           <ul>
             <li>
-              <h3>{ this.props.playlist.username ? this.props.playlist.username : "" }</h3>
+              <Link to={`users/${this.props.playlist.user_id}`}>
+                <h3>{ this.props.playlist.username ? this.props.playlist.username : "" }</h3>
+              </Link>
             </li>
             <li>
               <h2>{ this.props.playlist.title }</h2>

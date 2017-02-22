@@ -1,4 +1,6 @@
 import React from 'react';
+import PlaylistsIndex from './playlists_index';
+import TracksIndex from './tracks_index'
 
 class UserProfile extends React.Component {
   constructor (props) {
@@ -6,17 +8,22 @@ class UserProfile extends React.Component {
 
     this.state = { view: "tracks" };
   }
+
   componentWillMount () {
     this.props.fetchUser();
-    this.props.fetchUserPlaylists();
   }
 
-  userDisplay () {
-    <h1>hello user</h1>
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.user.id !== this.props.user.id) {
+      this.props.fetchUser();
+      this.props.fetchUserTracks();
+      this.props.fetchUserPlaylists();
+    }
   }
 
   render () {
     const user = this.props.user;
+    if (!user) return (<div></div>);
 
     return (
       <section className="user-profile">
@@ -34,13 +41,17 @@ class UserProfile extends React.Component {
             onClick={ () => this.setState({ view: "tracks" }) }>
             Tracks
           </h1>
-          <h1 className={ this.state.view === "create" ? "active" : "" }
-            onClick={ () => this.setState({ view: "create" }) }>
+          <h1 className={ this.state.view === "playlists" ? "active" : "" }
+            onClick={ () => this.setState({ view: "playlists" }) }>
             Playlists
           </h1>
         </section>
 
-        
+        { this.state.view === "tracks" ?
+          <TracksIndex tracks={this.props.tracks} /> :
+            <PlaylistsIndex playlists={this.props.playlist}/>
+        }
+
       </section>
     )
   }

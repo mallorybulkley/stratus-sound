@@ -35,3 +35,12 @@ export const fetchPlaylistTracks = (playlistId) => {
     }
   });
 };
+
+export const fetchUserTracks = (userId) => {
+  return $.ajax({
+    url: 'api/tracks',
+    data: {
+      userId
+    }
+  });
+};

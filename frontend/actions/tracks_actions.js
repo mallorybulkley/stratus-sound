@@ -11,3 +11,8 @@ export const fetchTracks = () => (dispatch) => (
   TrackApiUtil.fetchTracks()
   .then((data) => dispatch(receiveTracks(data)))
 );
+
+export const fetchUserTracks = (userId) => (dispatch) => (
+  TrackApiUtil.fetchUserTracks(userId)
+  .then((data) => dispatch(receiveTracks(data)))
+);
