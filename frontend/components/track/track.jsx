@@ -4,7 +4,7 @@ import TrackFormContainer from './track_form_container';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import PlaylistButton from '../playlist/playlist_button';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import { trackModalStyle } from '../../util/modal_style.js';
 
@@ -18,6 +18,10 @@ class Track extends React.Component {
   componentWillMount () {
     this.props.fetchTrack();
     this.props.fetchTrackPlaylists();
+  }
+
+  shouldComponentUpdate (nextProps) {
+    return nextProps.track ? true : false;
   }
 
   openModal () {
@@ -87,13 +91,21 @@ class Track extends React.Component {
           <CommentFormContainer trackId={track.id} />
 
           <div>
+            { this.props.currentUser.id === track.user.id ?
+              ( <a className="edit-button" onClick={ () => this.openModal() }>
+                  <i className="fa fa-pencil" aria-hidden="true"/>
+                  Edit
+                </a>
+              ) : "" }
 
-          { this.props.currentUser.id === track.user.id ?
-            ( <a className="edit-button" onClick={ () => this.openModal() }>
-                <i className="fa fa-pencil" aria-hidden="true"/>
-                Edit
-              </a>
-            ) : "" }
+            { this.props.currentUser.id === track.user.id ?
+              ( <a className="edit-button" onClick={ () => {
+                  this.props.deleteTrack().then(() => this.props.router.push('/'))
+                } }>
+                  <i className="fa fa-trash" aria-hidden="true"/>
+                  Delete
+                </a>
+              ) : "" }
 
             <PlaylistButton trackId={track.id} currentUser={ this.props.currentUser } />
           </div>
@@ -132,4 +144,4 @@ class Track extends React.Component {
   }
 }
 
-export default Track;
+export default withRouter(Track);

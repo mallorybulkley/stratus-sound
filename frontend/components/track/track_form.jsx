@@ -66,7 +66,7 @@ class TrackForm extends React.Component {
     } else {
       this.props.uploadTrack(this.createTrack())
       .then((track) => {
-        this.props.router.push(`tracks/${track.id}`);
+        this.props.router.push(`tracks/${track.track.id}`);
       });
     }
   }

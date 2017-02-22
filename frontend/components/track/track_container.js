@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Track from './track';
-import { fetchTrack } from '../../actions/track_actions';
+import { fetchTrack, deleteTrack } from '../../actions/track_actions';
 import { fetchTrackPlaylists } from '../../actions/playlist_actions';
 import { receiveCurrentTrack, togglePlay } from '../../actions/current_track_actions';
 
@@ -15,7 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchTrack: () => dispatch(fetchTrack(ownProps.params.trackId)),
   receiveCurrentTrack: (track) => dispatch(receiveCurrentTrack(track)),
   togglePlay: () => dispatch(togglePlay()),
-  fetchTrackPlaylists: () => dispatch(fetchTrackPlaylists(ownProps.params.trackId))
+  fetchTrackPlaylists: () => dispatch(fetchTrackPlaylists(ownProps.params.trackId)),
+  deleteTrack: () => dispatch(deleteTrack(ownProps.params.trackId))
 });
 
 export default connect(
