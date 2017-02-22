@@ -4,9 +4,9 @@ class Api::TracksController < ApplicationController
       @tracks = Playlist.find(params[:playlistId]).tracks.includes(:user)
       # @tracks = Track.joins(:playlists).includes(:user).where("playlist_id = ?", params[:playlistId])
     elsif params[:userId]
-      @tracks = User.find(params[:userId]).tracks.includes(:user)
+      @tracks = User.find(params[:userId]).tracks.includes(:user).order(created_at: :desc)
     else
-      @tracks = Track.all.includes(:user)
+      @tracks = Track.all.includes(:user).order(created_at: :desc)
     end
   end
 
