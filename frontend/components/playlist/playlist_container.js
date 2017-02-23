@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchPlaylist: () => dispatch(fetchPlaylist(ownProps.params.playlistId)),
   receiveCurrentTrack: (track, queue) => dispatch(receiveCurrentTrack(track, queue)),
   togglePlay: () => dispatch(togglePlay()),
-  deletePlaylistTrack: (playlistId, trackId) => dispatch(deletePlaylistTrack(playlistId, trackId)),
+  deletePlaylistTrack: (trackId) => dispatch(deletePlaylistTrack(ownProps.params.playlistId, trackId)),
 });
 
 export default connect(

@@ -30,7 +30,10 @@ const PlaylistIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curr
       </li>
 
       { showDelete ?
-        <button onClick={ () => deletePlaylistTrack(playlistId, track.id) }>
+        <button onClick={ (e) => {
+            e.stopPropagation();
+            deletePlaylistTrack(track.id);
+          }}>
           <i className="fa fa-trash-o" aria-hidden="true"/>
         </button>
         : "" }
