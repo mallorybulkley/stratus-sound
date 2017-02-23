@@ -15,6 +15,9 @@ class Search extends React.Component {
       if (this.state.query.length > 2) {
         this.props.fetchSearchResults(this.state);
       }
+      if (this.state.query.length < 2) {
+        this.props.clearSearchResults();
+      }
     });
   }
 
