@@ -35,25 +35,25 @@ export const createPlaylist = (playlist, trackId) => (dispatch) => (
 );
 
 export const fetchTrackPlaylists = (trackId) => (dispatch) => {
-  PlaylistApiUtil.fetchTrackPlaylists(trackId)
+  return PlaylistApiUtil.fetchTrackPlaylists(trackId)
     .then(playlists => dispatch(receivePlaylists(playlists)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 };
 
 export const fetchUserPlaylists = (userId) => (dispatch) => {
-  PlaylistApiUtil.fetchUserPlaylists(userId)
+  return PlaylistApiUtil.fetchUserPlaylists(userId)
     .then(playlists => dispatch(receivePlaylists(playlists)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 };
 
 export const addTrackToPlaylist = (playlistId, trackId) => (dispatch) => {
-  PlaylistApiUtil.addTrackToPlaylist(playlistId, trackId)
+  return PlaylistApiUtil.addTrackToPlaylist(playlistId, trackId)
     .then(playlist => dispatch(receiveNewPlaylist(playlist)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 };
 
 export const deletePlaylistTrack = (playlistId, trackId) => (dispatch) => {
-  PlaylistApiUtil.deletePlaylistTrack(playlistId, trackId)
+  return PlaylistApiUtil.deletePlaylistTrack(playlistId, trackId)
     .then(playlist => dispatch(receivePlaylist(playlist)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 };
