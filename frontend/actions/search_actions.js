@@ -13,3 +13,8 @@ export const fetchSearchResults = (query) => (dispatch) => {
     .then(data => dispatch(receiveSearchResults(data)),
       data => dispatch(receiveErrors(data.responseJSON.errors)));
 };
+
+export const clearSearchResults = () => ({
+  type: RECEIVE_SEARCH_RESULTS,
+  results: []
+});
