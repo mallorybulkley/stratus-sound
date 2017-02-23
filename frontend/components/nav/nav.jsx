@@ -6,7 +6,7 @@ import { logout } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/error_actions';
 import SessionFormContainer from '../session/session_form_container';
 import LeftNav from './left_nav';
-import Search from './search';
+import SearchContainer from './search_container';
 import RightNavLoggedIn from './right_nav_logged_in';
 import RightNavLoggedOut from './right_nav_logged_out';
 import { modalStyle } from '../../util/modal_style.js';
@@ -47,7 +47,7 @@ class Nav extends React.Component {
       <section className="nav">
         <ul className="main-nav">
         <LeftNav />
-        <Search />
+        <SearchContainer />
         { this.rightNav() }
         </ul>
 
