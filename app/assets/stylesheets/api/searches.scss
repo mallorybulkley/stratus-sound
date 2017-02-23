@@ -1,0 +1,12 @@
+// Place all the styles related to the api/searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-results {
+  background-color: #333333;
+  margin-top: 15px;
+  width: 545px;
+  z-index: 1;
+  position: relative;
+  opacity: 0.99;
+}

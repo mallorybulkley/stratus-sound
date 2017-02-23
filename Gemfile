@@ -34,6 +34,7 @@ gem 'aws-sdk', '>= 2.0'
 gem 'faker'
 gem 'figaro'
 gem 'paperclip', '~> 5.0.0'
+gem 'pg_search'
 
 group :development, :test do
   gem 'annotate'

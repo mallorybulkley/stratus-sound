@@ -28,6 +28,9 @@ class Api::PlaylistsController < ApplicationController
       @playlist.track_ids += [track_id]
     else
       @playlist.track_ids -= [track_id]
+      if @playlist.track_ids.empty?
+        @playlist.destroy
+      end
     end
 
     render :show

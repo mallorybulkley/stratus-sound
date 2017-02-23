@@ -11,4 +11,8 @@ class Track < ActiveRecord::Base
   has_many :comments
   has_many :playlist_tracks
   has_many :playlists, through: :playlist_tracks
+
+  # TODO: add genre search
+  include PgSearch
+  multisearchable against: [:name]
 end

@@ -1,13 +1,23 @@
 import React from 'react';
 import PlaylistIndexItem from './playlist_index_item';
 import UserInfo from '../track/user_info';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class Playlist extends React.Component {
   constructor (props) {
     super(props);
 
     this.props.fetchPlaylist();
+  }
+
+  handleDelete (trackId) {
+    if (this.props.playlist.tracks.length === 1) {
+      this.props.deletePlaylistTrack(trackId).then( () => {
+        this.props.router.push('/');
+      });
+    } else {
+      this.props.deletePlaylistTrack(trackId);
+    }
   }
 
   handleClick () {
@@ -34,7 +44,7 @@ class Playlist extends React.Component {
         togglePlay={ this.props.togglePlay }
         currentTrack={ this.props.currentTrack }
         showDelete={ this.props.playlist.user_id === this.props.currentUser.id }
-        deletePlaylistTrack={ this.props.deletePlaylistTrack } />
+        deletePlaylistTrack={ this.handleDelete.bind(this) } />
     ));
 
     const togglePlayButton = this.isPlaying() ?
@@ -79,4 +89,4 @@ class Playlist extends React.Component {
   }
 }
 
-export default Playlist;
+export default withRouter(Playlist);
