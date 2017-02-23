@@ -8,6 +8,8 @@ import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import { trackModalStyle } from '../../util/modal_style.js';
 
+import Waveform from '../waveform/waveform';
+
 class Track extends React.Component {
   constructor (props) {
     super(props)
@@ -84,6 +86,9 @@ class Track extends React.Component {
               <h2>{ track.name }</h2>
             </li>
           </ul>
+
+          <Waveform track={ track } />
+
           <img src={track.photo_url}/>
         </section>
 
