@@ -78,10 +78,8 @@ class Playlist extends React.Component {
           </section>
 
           <section className="sidebar">
-            <h4>More Tracks</h4>
-            <ul>
-              ...more later...
-            </ul>
+            <h4>More</h4>
+            ...
           </section>
         </section>
       </section>
