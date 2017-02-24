@@ -66,7 +66,7 @@ class TrackForm extends React.Component {
     } else {
       this.props.uploadTrack(this.createTrack())
       .then((track) => {
-        this.props.router.push(`tracks/${track.track.id}`);
+        this.props.router.push(`tracks/${track.id}`);
       });
     }
   }
@@ -158,7 +158,7 @@ class TrackForm extends React.Component {
 
             <div>
               <Link to="/">Cancel</Link>
-              <button onClick={this.handleSubmit} className="small orange">Save</button>
+              <button className="small orange">Save</button>
             </div>
           </form>
         </section>

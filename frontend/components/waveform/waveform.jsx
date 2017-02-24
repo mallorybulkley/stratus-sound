@@ -6,8 +6,6 @@ class MyWaveform extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = this.props.track;
-
     if (!this.props.track.peaks) {
       let request = new XMLHttpRequest();
       request.open('GET', this.props.track.audio_url, true);
@@ -19,7 +17,7 @@ class MyWaveform extends React.Component {
         context.decodeAudioData(request.response).then((buffer) => {
           let channelData = buffer.getChannelData(0);
           let peaks = this.extractPeaks(channelData);
-          this.props.savePeaks(this.props.track.id, this.state);
+          this.props.savePeaks({ id: this.props.track.id, peaks: peaks });
         })
       });
       request.send();
@@ -27,7 +25,9 @@ class MyWaveform extends React.Component {
   }
 
   componentDidMount () {
-    this.draw(JSON.parse(this.props.track.peaks));
+    if (this.props.track.peaks) {
+      this.draw(JSON.parse(this.props.track.peaks));
+    }
   }
 
   extractPeaks (channelData) {
@@ -51,9 +51,8 @@ class MyWaveform extends React.Component {
       }
     }
 
-    this.setState({ peaks: JSON.stringify(peaks) });
     this.draw(peaks);
-    return peaks;
+    return JSON.stringify(peaks);
   }
 
   draw (peaks) {
@@ -75,7 +74,7 @@ class MyWaveform extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  savePeaks: (id, track) => dispatch(savePeaks(id, track))
+  savePeaks: (track) => dispatch(savePeaks(track))
 });
 
 

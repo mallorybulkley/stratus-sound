@@ -55,10 +55,10 @@ export const fetchUserTracks = (userId) => {
   });
 };
 
-export const savePeaks = (trackId, track) => {
+export const savePeaks = (track) => {
   return $.ajax({
     type: 'PATCH',
-    url: `api/tracks/${trackId}`,
+    url: `api/tracks/${track.id}`,
     data: {
       track
     }
