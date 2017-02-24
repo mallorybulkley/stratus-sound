@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 
-.stream canvas.waveform {
+.stream canvas.waveform, .user-track-list canvas.waveform {
   width: 450px;
   height: 100px;
   position: absolute;
