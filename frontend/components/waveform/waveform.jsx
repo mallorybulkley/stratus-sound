@@ -4,30 +4,19 @@ class MyWaveform extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = { buffer: [] };
+    let request = new XMLHttpRequest();
+    request.open('GET', this.props.track.audio_url, true);
+    request.responseType = 'arraybuffer';
 
-    if (!this.props.track.buffer) {
-      var request = new XMLHttpRequest();
-      request.open('GET', this.props.track.audio_url, true);
-      request.responseType = 'arraybuffer';
+    request.addEventListener('load', () => {
+      let context = window.audioContext;
 
-      request.addEventListener('load', () => {
-        var context = window.audioContext;
-
-        context.decodeAudioData(request.response).then((buffer) => {
-          // this.setState({ buffer: buffer });
-          console.log(buffer);
-
-          let channelData = buffer.getChannelData(0);
-          // console.log(channelData);
-
-          let peaks = this.extractPeaks(channelData);
-          console.log("done");
-          window.peaks = peaks;
-        })
-      });
-      request.send();
-    }
+      context.decodeAudioData(request.response).then((buffer) => {
+        let channelData = buffer.getChannelData(0);
+        let peaks = this.extractPeaks(channelData);
+      })
+    });
+    request.send();
   }
 
   extractPeaks (channelData) {
@@ -53,6 +42,7 @@ class MyWaveform extends React.Component {
 
     this.peaks = peaks;
     this.draw();
+    console.log("DONE");
   }
 
   draw () {

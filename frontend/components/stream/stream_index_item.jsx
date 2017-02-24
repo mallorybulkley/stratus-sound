@@ -40,7 +40,9 @@ const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curren
         </li>
       </ul>
 
-      <Waveform track={ track } width="500" />
+      <a onClick={ handleClick }>
+        <Waveform track={ track } width="500" />
+      </a>
     </ul>
   );
 };
