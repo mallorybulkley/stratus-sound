@@ -149,8 +149,9 @@ class TrackForm extends React.Component {
               onChange={this.updateProperty("release_date")} />
 
             <label>Genre</label>
-            <select onChange={this.updateProperty("genre")} >
-              <option disabled>Select</option>
+            <select onChange={this.updateProperty("genre")} 
+              defaultValue={ this.state.genre || "select" } >
+              <option disabled value="select">Select</option>
               { genres }
             </select>
 
