@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Waveform from '../waveform/waveform';
 
 const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, currentTrack }) => {
   const handleClick = () => {
@@ -39,6 +40,7 @@ const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curren
         </li>
       </ul>
 
+      <Waveform track={ track } width="500" />
     </ul>
   );
 };

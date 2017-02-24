@@ -87,7 +87,7 @@ class Track extends React.Component {
             </li>
           </ul>
 
-          <Waveform track={ track } />
+          <Waveform track={ track } width="500"/>
 
           <img src={track.photo_url}/>
         </section>
