@@ -1,0 +1,23 @@
+.header canvas.waveform {
+  width: 750px;
+  height: 150px;
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.stream canvas.waveform {
+  width: 450px;
+  height: 100px;
+  position: absolute;
+  left: 200px;
+  bottom: 10px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+canvas.waveform:hover {
+  opacity: 1;
+}

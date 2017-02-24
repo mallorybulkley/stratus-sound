@@ -5,6 +5,8 @@
       user: current_user
     ).html_safe %>
   <% end %>
+
+  window.audioContext = new (window.AudioContext || window.webkitAudioContext)();
 </script>
 
 
