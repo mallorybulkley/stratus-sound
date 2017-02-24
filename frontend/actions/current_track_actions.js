@@ -12,3 +12,7 @@ export const receiveCurrentTrack = (track, queue) => ({
 export const togglePlay = () => ({
   type: TOGGLE_PLAY
 })
+
+export const recordPlay = (trackId) => (dispatch) => (
+  TrackApiUtil.recordPlay(trackId)
+);

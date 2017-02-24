@@ -96,6 +96,8 @@ class Track extends React.Component {
           <CommentFormContainer trackId={track.id} />
 
           <div>
+            <i className="fa fa-play" aria-hidden="true"/> { track.play_count }
+
             { this.props.currentUser.id === track.user.id ?
               ( <a className="edit-button" onClick={ () => this.openModal() }>
                   <i className="fa fa-pencil" aria-hidden="true"/>
