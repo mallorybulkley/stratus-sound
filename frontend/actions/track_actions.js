@@ -29,3 +29,9 @@ export const deleteTrack = (id) => (dispatch) => (
   TrackApiUtil.deleteTrack(id)
     .then(() => dispatch(receiveTrack(null)))
 );
+
+export const savePeaks = (trackId, track) => (dispatch) => (
+  TrackApiUtil.savePeaks(trackId, track)
+    .then(track => dispatch(receiveTrack(track)),
+      data => dispatch(receiveErrors(data.responseJSON.errors)))
+);

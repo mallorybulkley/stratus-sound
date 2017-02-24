@@ -1,22 +1,33 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { savePeaks } from '../../actions/track_actions';
 
 class MyWaveform extends React.Component {
   constructor (props) {
     super(props);
 
-    let request = new XMLHttpRequest();
-    request.open('GET', this.props.track.audio_url, true);
-    request.responseType = 'arraybuffer';
+    this.state = this.props.track;
 
-    request.addEventListener('load', () => {
-      let context = window.audioContext;
+    if (!this.props.track.peaks) {
+      let request = new XMLHttpRequest();
+      request.open('GET', this.props.track.audio_url, true);
+      request.responseType = 'arraybuffer';
 
-      context.decodeAudioData(request.response).then((buffer) => {
-        let channelData = buffer.getChannelData(0);
-        let peaks = this.extractPeaks(channelData);
-      })
-    });
-    request.send();
+      request.addEventListener('load', () => {
+        let context = window.audioContext;
+
+        context.decodeAudioData(request.response).then((buffer) => {
+          let channelData = buffer.getChannelData(0);
+          let peaks = this.extractPeaks(channelData);
+          this.props.savePeaks(this.props.track.id, this.state);
+        })
+      });
+      request.send();
+    }
+  }
+
+  componentDidMount () {
+    this.draw(JSON.parse(this.props.track.peaks));
   }
 
   extractPeaks (channelData) {
@@ -40,15 +51,15 @@ class MyWaveform extends React.Component {
       }
     }
 
-    this.peaks = peaks;
-    this.draw();
-    console.log("DONE");
+    this.setState({ peaks: JSON.stringify(peaks) });
+    this.draw(peaks);
+    return peaks;
   }
 
-  draw () {
+  draw (peaks) {
     let ctx = this.canvas.getContext('2d');
     ctx.fillStyle = '#333333';
-    this.peaks.forEach((peak) => {
+    peaks.forEach((peak) => {
       ctx.fillRect(...peak)
     });
   }
@@ -62,6 +73,13 @@ class MyWaveform extends React.Component {
     )
   }
 }
-// <Waveform buffer={this.state.buffer} width={720} color='#333333'/>
 
-export default MyWaveform;
+const mapDispatchToProps = (dispatch) => ({
+  savePeaks: (id, track) => dispatch(savePeaks(id, track))
+});
+
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(MyWaveform);
