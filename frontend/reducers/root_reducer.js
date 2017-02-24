@@ -11,16 +11,16 @@ import SearchReducer from './search_reducer';
 import LoadingReducer from './loading_reducer';
 
 const RootReducer = combineReducers({
-  session: SessionReducer,
-  errors: ErrorReducer,
-  tracks: TracksReducer,
-  track: TrackReducer,
-  user: UserReducer,
-  currentTrack: CurrentTrackReducer,
   comments: CommentReducer,
+  currentTrack: CurrentTrackReducer,
+  errors: ErrorReducer,
+  loading: LoadingReducer,
   playlist: PlaylistReducer,
   searchResults: SearchReducer,
-  loading: LoadingReducer
+  session: SessionReducer,
+  track: TrackReducer,
+  tracks: TracksReducer,
+  user: UserReducer
 });
 
 export default RootReducer;

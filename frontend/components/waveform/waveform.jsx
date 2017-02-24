@@ -35,7 +35,7 @@ class MyWaveform extends React.Component {
 
     const step = Math.ceil(channelData.length / 700);
 
-    for (let i = 0; i < this.props.width; i += 2) {
+    for (let i = 0; i < 700; i += 2) {
       let min = 1.0;
       let max = -1.0;
 

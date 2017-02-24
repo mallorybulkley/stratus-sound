@@ -1,14 +1,14 @@
 import React from 'react';
-import UserInfo from './user_info';
-import TrackFormContainer from './track_form_container';
+import Modal from 'react-modal';
+import { Link, withRouter } from 'react-router';
+
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import PlaylistButton from '../playlist/playlist_button';
-import { Link, withRouter } from 'react-router';
-import Modal from 'react-modal';
-import { trackModalStyle } from '../../util/modal_style.js';
-
+import TrackFormContainer from './track_form_container';
+import UserInfo from './user_info';
 import Waveform from '../waveform/waveform';
+import { trackModalStyle } from '../../util/modal_style.js';
 
 class Track extends React.Component {
   constructor (props) {
