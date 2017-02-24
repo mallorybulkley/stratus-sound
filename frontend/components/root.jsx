@@ -10,25 +10,28 @@ import TrackContainer from './track/track_container';
 import TrackFormContainer from './track/track_form_container';
 import UserProfileContainer from './user/user_profile_container';
 
-const _ensureLoggedIn = (nextState, replace) => {
-  const currentUser = store.getState().session.username;
-  if (!currentUser) {
-    replace('/');
-  }
-};
 
-const Root = ({ store }) => (
-  <Provider store={ store }>
-    <Router history={ hashHistory } onUpdate={ () => window.scrollTo(0, 0) } >
-      <Route path="/" component={ App } >
-        <IndexRoute component={ Home } />
-        <Route path="upload" component={ TrackFormContainer } onEnter={ _ensureLoggedIn } />
-        <Route path="tracks/:trackId" component={ TrackContainer } />
-        <Route path="playlists/:playlistId" component={ PlaylistContainer } />
-        <Route path="users/:userId" component={ UserProfileContainer } />
-      </Route>
-    </Router>
-  </Provider>
-);
+const Root = ({ store }) => {
+  const _ensureLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().session.username;
+    if (!currentUser) {
+      replace('/');
+    }
+  };
+
+  return (
+    <Provider store={ store }>
+      <Router history={ hashHistory } onUpdate={ () => window.scrollTo(0, 0) } >
+        <Route path="/" component={ App } >
+          <IndexRoute component={ Home } />
+          <Route path="upload" component={ TrackFormContainer } onEnter={ _ensureLoggedIn } />
+          <Route path="tracks/:trackId" component={ TrackContainer } />
+          <Route path="playlists/:playlistId" component={ PlaylistContainer } />
+          <Route path="users/:userId" component={ UserProfileContainer } />
+        </Route>
+      </Router>
+    </Provider>
+  )
+};
 
 export default Root;
