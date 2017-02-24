@@ -4,22 +4,15 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
 import Home from './home/home';
-import SessionFormContainer from './session/session_form_container';
-import TrackFormContainer from './track/track_form_container';
-import TrackContainer from './track/track_container';
 import PlaylistContainer from './playlist/playlist_container';
+import SessionFormContainer from './session/session_form_container';
+import TrackContainer from './track/track_container';
+import TrackFormContainer from './track/track_form_container';
 import UserProfileContainer from './user/user_profile_container';
 
 const _ensureLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.username;
   if (!currentUser) {
-    replace('/');
-  }
-};
-
-const _redirectIfLoggedIn = (nextState, replace) => {
-  const currentUser = store.getState().session.username;
-  if (currentUser) {
     replace('/');
   }
 };

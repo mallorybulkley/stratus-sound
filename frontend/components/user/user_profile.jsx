@@ -2,8 +2,8 @@ import React from 'react';
 import Modal from 'react-modal';
 import { profileModalStyle } from '../../util/modal_style.js';
 import PlaylistsIndex from './playlists_index';
-import TracksIndex from './tracks_index'
 import ProfileFormContainer from './profile_form_container';
+import TracksIndex from './tracks_index'
 
 class UserProfile extends React.Component {
   constructor (props) {
