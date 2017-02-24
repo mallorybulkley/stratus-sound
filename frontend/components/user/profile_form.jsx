@@ -4,7 +4,6 @@ class ProfileForm extends React.Component {
   constructor (props) {
     super(props);
 
-    // const defaultState = { location: "", bio: "", photoFile: null, photoUrl: null };
     this.state = this.props.user
 
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-// onClick={props.openModal("login")}
-//  onClick={props.openModal("signup")}
 const RightNavLoggedOut = ({openModal}) => (
   <ul className="right">
     <li className="border">
