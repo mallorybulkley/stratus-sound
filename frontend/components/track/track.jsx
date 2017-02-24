@@ -97,6 +97,7 @@ class Track extends React.Component {
 
           <div>
             <i className="fa fa-play" aria-hidden="true"/> { track.play_count }
+            <i className="fa fa-comment" aria-hidden="true"/> { track.comment_count }
 
             { this.props.currentUser.id === track.user.id ?
               ( <a className="edit-button" onClick={ () => this.openModal() }>

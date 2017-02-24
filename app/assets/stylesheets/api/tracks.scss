@@ -82,9 +82,23 @@ h4 {
   align-items: center;
 }
 
-.track-nav .fa-play {
+.track-nav .fa-play, .fa.fa-comment {
   font-size: 11px;
   padding: 2px;
+  margin-left: 5px;
+}
+
+.stream-tracks div {
+  position: absolute;
+  right: 0;
+  font-size: 11px;
+  color: #CCCCCC;
+
+  i {
+    font-size: 11px;
+    color: #CCCCCC;
+    padding: 2px;
+  }
 }
 
 // comments
