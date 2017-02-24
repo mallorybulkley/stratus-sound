@@ -11,7 +11,7 @@ class Api::TracksController < ApplicationController
   end
 
   def show
-    @track = Track.find(params[:id])
+    @track = Track.includes(:plays).find(params[:id])
   end
 
   def create
@@ -39,6 +39,12 @@ class Api::TracksController < ApplicationController
     else
       render json: { errors: @track.errors.full_messages }, status: 422
     end
+  end
+
+  def play
+    Play.create(user: current_user, track_id: params[:id])
+
+    render json: {}, status: 200
   end
 
   private
