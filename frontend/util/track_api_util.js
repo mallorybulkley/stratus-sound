@@ -64,3 +64,10 @@ export const savePeaks = (track) => {
     }
   });
 };
+
+export const recordPlay = (trackId) => {
+  return $.ajax({
+    type: 'POST',
+    url: `/api/tracks/${trackId}/play`
+  });
+}

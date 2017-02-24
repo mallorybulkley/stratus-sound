@@ -13,6 +13,12 @@ class Playbar extends React.Component {
     };
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.track) {
+      this.props.recordPlay(nextProps.track.id)
+    }
+  }
+
   updateProgress () {
     this.setState({ currentTime: this.audioTag.currentTime })
   }

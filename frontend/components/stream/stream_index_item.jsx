@@ -26,8 +26,9 @@ const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curren
         { togglePlayButton }
       </li>
 
-      <ul>
 
+
+      <ul>
         <li>
           <Link to={`users/${track.user.id}`}>
             <h4>{track.user.username}</h4>
@@ -40,9 +41,18 @@ const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curren
         </li>
       </ul>
 
+      <div>
+        <i className="fa fa-play" aria-hidden="true"/>
+        { track.play_count }
+        <i className="fa fa-comment" aria-hidden="true"/>
+        { track.comment_count }
+      </div>
+
+
       <a onClick={ handleClick }>
         <Waveform track={ track } width="500" />
       </a>
+
     </ul>
   );
 };
