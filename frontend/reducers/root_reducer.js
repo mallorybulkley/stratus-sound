@@ -8,6 +8,7 @@ import CurrentTrackReducer from './current_track_reducer';
 import CommentReducer from './comment_reducer';
 import PlaylistReducer from './playlist_reducer';
 import SearchReducer from './search_reducer';
+import LoadingReducer from './loading_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -18,7 +19,8 @@ const RootReducer = combineReducers({
   currentTrack: CurrentTrackReducer,
   comments: CommentReducer,
   playlist: PlaylistReducer,
-  searchResults: SearchReducer
+  searchResults: SearchReducer,
+  loading: LoadingReducer
 });
 
 export default RootReducer;

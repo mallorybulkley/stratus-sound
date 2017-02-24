@@ -4,7 +4,8 @@ import { uploadTrack, updateTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => ({
   errors: state.errors,
-  currentUser: state.session
+  currentUser: state.session,
+  loading: state.loading
 });
 
 const mapDispatchToProps = (dispatch) => ({

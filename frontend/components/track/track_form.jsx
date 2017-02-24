@@ -104,6 +104,13 @@ class TrackForm extends React.Component {
   }
 
   render () {
+    if (this.props.loading) return (
+      <div className="loading">
+        <h1>Uploading...</h1>
+        <i className="fa fa-spinner" aria-hidden="true"/>
+      </div>
+    );
+
     const errors = this.props.errors.map((err, idx) => (
       <li key={idx}>{err}</li>
     ));

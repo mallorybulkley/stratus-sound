@@ -131,3 +131,25 @@ section.profile.form {
 a h3:hover {
   color: #FFFFFF;
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fa-spinner {
+  font-size: 150px;
+  color: #F50;
+  animation-name: spin;
+  animation-duration: .9s;
+  animation-iteration-count: infinite;
+  margin: 25px;
+}
+
+.loading {
+  text-align: center;
+}
