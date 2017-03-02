@@ -1,7 +1,7 @@
 # Stratus Sound
 [Stratus Sound live][heroku]
 
-[heroku]: http://stratus-sound.herokuapp.com/
+[heroku]: http://stratus-sound.us/
 
 Stratus Sound is a single-page, full stack web application for streaming and sharing music. It utilizes Ruby on Rails with a PostgreSQL database on the backend, and React.js and Redux on the frontend.
 
