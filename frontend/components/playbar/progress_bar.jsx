@@ -7,7 +7,7 @@ class ProgressBar extends React.Component {
     if (!audio) return null;
 
     const progress = formatDuration(Math.floor(audio.currentTime));
-    const duration = formatDuration(Math.floor(audio.duration));
+    const duration = audio.duration ? formatDuration(Math.floor(audio.duration)) : "0:00";
 
     return (
       <ul className="progress">
