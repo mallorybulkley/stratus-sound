@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_attached_file :photo, default_url: "profiledefault.png"
+  has_attached_file :photo, default_url: "profiledefault.png",
+    :styles => {
+      :small => "40x40#",
+      :medium  => "120x120#",
+      :large => "200x200#" }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token

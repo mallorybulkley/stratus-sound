@@ -3,6 +3,6 @@ json.array! @comments do |comment|
   json.user do
     json.id comment.user.id
     json.username comment.user.username
-    json.photo_url asset_path(comment.user.photo.url)
+    json.photo_url asset_path(comment.user.photo.url(:small))
   end
 end
