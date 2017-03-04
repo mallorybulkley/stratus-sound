@@ -17,12 +17,12 @@ users.push(User.create!(
   photo: "https://s3.amazonaws.com/STRATUS-SOUND-DEV/users/mallory.jpg"
 ))
 
-LOCATIONS = ["Monk's Restaurant", "Upper West Side", "Jerry's Apartment", "The Chinese Restaurant", "The Post Office", "New York City", "Newark, NJ", "Brooklyn"]
+LOCATIONS = ["Monk's Restaurant", "Upper West Side", "Jerry's Apartment", "The Chinese Restaurant", "The Post Office", "New York City", "Newark, NJ", "Brooklyn", "Reality"]
 
 CHARACTERS = ["Jerry Seinfeld", "Elaine Benes", "Cosmo Kramer", "George Costanza",
   "NEWMAN", "The Maestro", "David Puddy", "Larry David", "Art Vandelay"]
 
-BIOS = ["What's the deal with that?", "Yada yada yada", "Giddyup", "I invented 'It's not you, it's me", "Hello, Jerry",
+BIOS = ["What's the deal with that?", "Yada yada yada", "Giddyup", "I invented 'It's not you, it's me'", "Hello, Jerry.",
   "There aren't any villas for rent in Tuscany", "Go Devils!", "Pretty good", "Importer-Exporter"]
 
 PHOTOS = [
@@ -98,11 +98,11 @@ ARTIST_LOCATIONS = [
 ]
 
 14.times do |i|
-  User.create!(
+  users.push(User.create!(
   username: ARTISTS[i],
   password: "password123",
   location: ARTIST_LOCATIONS.sample,
-  )
+  ))
 end
 
 Track.destroy_all
@@ -121,13 +121,8 @@ TRACK_NAMES = [
   "Oortsche Wolke",
   "Stellar Legacy",
   "Tongue Weaves",
-  "Three Times",
-  "Matt Damon",
   "Make With The Action",
   "Le Monopole du Cur",
-  "When I'm With You",
-  "Arcade Paradise",
-  "We Are Heading to the East",
   "The Hours",
   "Skeptic",
   "Trailways A"
@@ -146,16 +141,31 @@ AUDIO = [
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Lobo_Loco_-_01_-_Oortsche_Wolke_ID_80.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Nosens_-_04_-_Stellar_Legacy.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Mirth_Naarc_-_04_-_Tongue_Weaves.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/music%252FZiklibrenbib%252FMesmerists%252FLeft_songs%252FMesmerists_-_10_-_Three_Times.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/music%252FZiklibrenbib%252FMi_Nave%252FEstela%252FMi_Nave_-_06_-_Matt_Damon.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/The_Modern_Airline_-_10_-_Make_With_The_Action.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Infecticide_-_12_-_Le_Monopole_du_Cur.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Scott_Holmes_-_05_-_When_Im_with_you.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Scott_Holmes_-_01_-_Arcade_Paradise.mp3",
-  "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/springtide_-_03_-_We_Are_Heading_To_The_East.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Scott_Gratton_-_01_-_The_Hours.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Podington_Bear_-_Skeptic.mp3",
   "https://s3.amazonaws.com/STRATUS-SOUND-DEV/tracks/audios/Podington_Bear_-_Trailways_A.mp3"
+]
+
+LOOKUP = [
+  "Monplaisir",
+  "Monplaisir",
+  "Monplaisir",
+  "Quint Baker",
+  "Quint Baker",
+  "The Agrarians",
+  "sanmi",
+  "Lobo Loco",
+  "Lobo Loco",
+  "Lobo Loco",
+  "Nosens",
+  "Mirth Naarc",
+  "The Modern Airline",
+  "Infecticide",
+  "Scott Gratton",
+  "Podington Bear",
+  "Podington Bear"
 ]
 
 ALBUM_ART = [
@@ -206,28 +216,22 @@ DESCRIPTIONS = [
 
 tracks = []
 
-while tracks.count < 25
-  audio = AUDIO.sample
-  puts audio
-
+while tracks.count < AUDIO.count
   begin
-    i = tracks.length
+    i = tracks.count
     t = Track.create(
       name: TRACK_NAMES[i],
-      user_id: ARTISTS[i],
+      user: User.find_by(username: LOOKUP[i]),
       release_date: Faker::Date.between(1.year.ago, Date.today),
       genre: GENRES.sample,
-      audio: audio,
+      audio: AUDIO[i],
       description: DESCRIPTIONS.sample,
       photo: ALBUM_ART.sample
     )
     tracks << t if t.valid?
   rescue OpenURI::HTTPError
-    puts "rescued"
+    puts "rescued: ", AUDIO[i]
   end
-
-  puts tracks
-
 end
 
 COMMENTS = [
@@ -253,7 +257,7 @@ COMMENTS = [
 ]
 
 tracks.each do |track|
-  rand(1..15).times do
+  rand(4..15).times do
     Comment.create(
       body: COMMENTS.sample,
       user_id: users.sample.id,
@@ -283,7 +287,7 @@ PLAYLIST_TITLES = [
   "Random songs"
 ]
 
-30.times do |i|
+20.times do |i|
   playlist = Playlist.create(
     user: users.sample,
     title: PLAYLIST_TITLES.sample
