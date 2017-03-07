@@ -128,8 +128,10 @@ class TrackForm extends React.Component {
         <section className="upload form">
           <section className="image">
             <img src={this.state.photo_url} />
-            <input type="file"
-            onChange={this.updatePhoto} />
+            <label><i className="fa fa-camera" aria-hidden="true"/>Choose image
+              <input type="file"
+                onChange={this.updatePhoto} />
+            </label>
           </section>
           <form
             onSubmit={this.handleSubmit}>
@@ -149,15 +151,17 @@ class TrackForm extends React.Component {
               onChange={this.updateProperty("release_date")} />
 
             <label>Genre</label>
-            <select onChange={this.updateProperty("genre")} 
+            <select onChange={this.updateProperty("genre")}
               defaultValue={ this.state.genre || "select" } >
               <option disabled value="select">Select</option>
               { genres }
             </select>
 
             Audio
-            <input type="file"
+            <label className="audio"><i className="fa fa-microphone" aria-hidden="true"/>Choose a file to upload
+              <input type="file"
               onChange={this.updateAudio} />
+            </label>
 
             <textarea
               value={this.state.description}

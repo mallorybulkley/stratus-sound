@@ -61,8 +61,10 @@ class ProfileForm extends React.Component {
 
         <section className="profile image">
           <img src={this.state.photo_url} />
-          <input type="file"
-          onChange={this.updatePhoto} />
+          <label><i className="fa fa-camera" aria-hidden="true"/>Choose image
+            <input type="file"
+              onChange={this.updatePhoto} />
+          </label>
         </section>
 
         <form onSubmit={this.handleSubmit}>

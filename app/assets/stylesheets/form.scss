@@ -15,8 +15,7 @@ select {
 }
 
 input[type="file"] {
-  border: 0;
-  font-size: 14px;
+  display: none;
 }
 
 button {
@@ -152,4 +151,59 @@ a h3:hover {
 
 .loading {
   text-align: center;
+}
+
+.image {
+  position: relative;
+}
+
+.image label {
+  display: block;
+  position: absolute;
+  padding: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #F2F2F2;
+  background-color: white;
+  opacity: 0.85;
+  top: 220px;
+  left: 70px;
+
+  .fa {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+
+.profile.image label {
+  top: auto;
+  left: 17px;
+}
+
+.image input {
+  display: none;
+}
+
+.image label:hover {
+  opacity: 1;
+}
+
+label.audio {
+  display: block;
+  padding: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #F2F2F2;
+  width: 175px;
+
+  .fa {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+
+label.audio:hover {
+  .fa-microphone {
+    color: #F50;
+  }
 }
