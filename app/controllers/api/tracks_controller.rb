@@ -1,10 +1,11 @@
 class Api::TracksController < ApplicationController
   def index
     if params[:playlistId]
-      @tracks = Playlist.find(params[:playlistId]).tracks.includes(:user, :plays, :comments)
-      # @tracks = Track.joins(:playlists).includes(:user).where("playlist_id = ?", params[:playlistId])
+      # @tracks = Playlist.find(params[:playlistId]).tracks
+      @tracks = Track.joins(:playlists).includes(:user).where("playlist_id = ?", params[:playlistId])
     elsif params[:userId]
-      @tracks = User.find(params[:userId]).tracks.includes(:user, :plays, :comments).order(created_at: :desc)
+      @tracks = Track.joins(:user).includes(:comments).where("user_id = ?", params[:userId]).order(created_at: :desc)
+      # @tracks = User.find(params[:userId]).tracks.order(created_at: :desc)
     else
       @tracks = Track.all.includes(:user, :plays, :comments).order(created_at: :desc)
     end
