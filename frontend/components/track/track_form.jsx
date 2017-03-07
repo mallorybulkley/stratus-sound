@@ -158,9 +158,9 @@ class TrackForm extends React.Component {
             </select>
 
             Audio
-            <label className="audio"><i className="fa fa-microphone" aria-hidden="true"/>Choose a file to upload
+            <label id="audioFile"><i className="fa fa-microphone" aria-hidden="true"/>Choose a file to upload
               <input type="file"
-              onChange={this.updateAudio} />
+              onChange={ this.updateAudio } />
             </label>
 
             <textarea

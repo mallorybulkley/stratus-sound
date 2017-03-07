@@ -188,7 +188,7 @@ a h3:hover {
   opacity: 1;
 }
 
-label.audio {
+label#audioFile {
   display: block;
   padding: 0 5px;
   border-radius: 4px;
@@ -202,7 +202,7 @@ label.audio {
   }
 }
 
-label.audio:hover {
+label#audioFile:hover {
   .fa-microphone {
     color: #F50;
   }
