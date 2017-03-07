@@ -39,12 +39,15 @@ class Search extends React.Component {
 
     return (
       <li>
-        <input
+        <label className="search">
+          <input
           id="search"
           type="text"
           placeholder="Search"
           value={ this.state.query }
           onChange={ this.updateQuery }/>
+        <i className="fa fa-search" aria-hidden="true"/>
+        </label>
         <ul className="search-results">
           { results }
         </ul>
