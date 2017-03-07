@@ -29,7 +29,7 @@ Stratus Sound is a single-page, full stack web application for streaming and sha
 ### Audio Waveforms
 Waveform visualizations are shown for each track. The first time a track is viewed, the audio file is asynchronously decoded. After the audio is decoded, sample points of the resulting `AudioBuffer`'s `channelData` are extracted and used to draw the waveform on a Canvas element. The audio peaks are drawn to demonstrate the changes in sound pressure throughout the track. Finally, since extracting the peaks from an `AudioBuffer` is a time consuming process, the array of audio peaks is saved to the database as a JSON string. Upon subsequent renders of the track, the audio peaks data is simply retrieved from the database and the waveform draws instantly without having to re-process the audio data.
 
-```
+```javascript
 let request = new XMLHttpRequest();
 request.open('GET', this.props.track.audio_url, true);
 request.responseType = 'arraybuffer';
@@ -49,7 +49,7 @@ request.send();
 ### Music Playback
 When a user clicks a track to play, a `Playbar` component is rendered. This component fetches the audio file (hosted with Amazon Web Services) and begins playback using a simple HTML5 audio element. The `Controller` component located within the `Playbar` allow users to pause, play, loop, restart and skip tracks. The current track and the song queue are stored in the app's state, allowing the user to navigate through the app with continuous audio playback. Users are also able to control the current song's play/pause state using the space bar, or by clicking any of the play buttons or waveforms throughout the app. All of these buttons are kept in sync with the currently playing track through the Redux `store`, maintaining a predictable experience for the user.
 
-```
+```javascript
 <audio id='audio' autoPlay preload="auto" type="audio/mpeg"
   src={ track.audio_url }
   ref={ tag => this.audioTag = tag }
