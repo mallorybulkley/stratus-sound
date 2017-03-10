@@ -5,6 +5,9 @@
 
 Stratus Sound is a single-page, full stack web application for streaming and sharing music. It utilizes Ruby on Rails with a PostgreSQL database on the backend, and React.js and Redux on the frontend.
 
+![Stratus Sound stream](./docs/images/stream.png)
+
+
 ### Features
 * Upload, edit, delete and view tracks using the RESTful API
 * Create and add songs to playlists
@@ -27,6 +30,8 @@ Stratus Sound is a single-page, full stack web application for streaming and sha
 ## Features & Implementation
 
 ### Audio Waveforms
+![Stratus Sound track](./docs/images/track_show.png)
+
 Waveform visualizations are shown for each track. The first time a track is viewed, the audio file is asynchronously decoded. After the audio is decoded, sample points of the resulting `AudioBuffer`'s `channelData` are extracted and used to draw the waveform on a Canvas element. The audio peaks are drawn to demonstrate the changes in sound pressure throughout the track. Finally, since extracting the peaks from an `AudioBuffer` is a time consuming process, the array of audio peaks is saved to the database as a JSON string. Upon subsequent renders of the track, the audio peaks data is simply retrieved from the database and the waveform draws instantly without having to re-process the audio data.
 
 ```javascript
@@ -47,6 +52,8 @@ request.send();
 ```
 
 ### Music Playback
+![Stratus Sound playbar](./docs/images/playbar.gif)
+
 When a user clicks a track to play, a `Playbar` component is rendered. This component fetches the audio file (hosted with Amazon Web Services) and begins playback using a simple HTML5 audio element. The `Controller` component located within the `Playbar` allow users to pause, play, loop, restart and skip tracks. The current track and the song queue are stored in the app's state, allowing the user to navigate through the app with continuous audio playback. Users are also able to control the current song's play/pause state using the space bar, or by clicking any of the play buttons or waveforms throughout the app. All of these buttons are kept in sync with the currently playing track through the Redux `store`, maintaining a predictable experience for the user.
 
 ```javascript
@@ -58,6 +65,8 @@ When a user clicks a track to play, a `Playbar` component is rendered. This comp
 ```
 
 ### Playlists and the Play Queue
+![Stratus Sound users](./docs/images/user.gif)
+
 Users are also able to browse and create playlists to store their favorite tracks. When playing music from a playlist, user page, or the Stream homepage, a play queue is generated and stored in the app's state. At the end of the current track, or if the user presses the skip button, the next track in the queue is played. The audio url is stored along with the songs in the queue so it does not need to be fetched from the database, allowing for a faster, smoother listening experience.
 
 The playlists are organized using a `playlist_tracks` table in the database, which connects each Track to many playlists and each Playlist to many tracks. When a new playlist is created from a track's page, that track is automatically added to the playlist. If a playlist's last track is removed, the playlist itself is deleted.
