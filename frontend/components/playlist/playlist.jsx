@@ -2,6 +2,7 @@ import React from 'react';
 import PlaylistIndexItem from './playlist_index_item';
 import UserInfo from '../track/user_info';
 import { Link, withRouter } from 'react-router';
+import Footer from '../footer/footer';
 
 class Playlist extends React.Component {
   constructor (props) {
@@ -66,7 +67,7 @@ class Playlist extends React.Component {
               <h2>{ this.props.playlist.title }</h2>
             </li>
           </ul>
-          <img src={this.props.playlist.tracks[0].photo_url}/>
+          <img src={this.props.playlist.photo_url}/>
 
         </section>
 
@@ -78,8 +79,7 @@ class Playlist extends React.Component {
           </section>
 
           <section className="sidebar">
-            <h4>More</h4>
-            ...
+            <Footer />
           </section>
         </section>
       </section>

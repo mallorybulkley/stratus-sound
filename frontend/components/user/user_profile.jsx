@@ -4,6 +4,7 @@ import { profileModalStyle } from '../../util/modal_style.js';
 import PlaylistsIndex from './playlists_index';
 import ProfileFormContainer from './profile_form_container';
 import TracksIndex from './tracks_index'
+import Footer from '../footer/footer'
 
 class UserProfile extends React.Component {
   constructor (props) {
@@ -92,6 +93,7 @@ class UserProfile extends React.Component {
             <ul>
               { user.bio }
             </ul>
+            <Footer />
           </section>
         </section>
 
