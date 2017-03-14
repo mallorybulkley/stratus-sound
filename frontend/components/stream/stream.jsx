@@ -1,11 +1,20 @@
 import React from 'react';
 import StreamIndexItem from './stream_index_item';
+import Infinite from 'react-infinite';
 
 class Stream extends React.Component {
   constructor (props) {
     super(props);
+    this.state = { offset: 0 }
 
-    this.props.fetchTracks();
+    this.props.fetchScrollTracks(this.state.pageId);
+  }
+
+  handleInfiniteLoad () {
+    console.log(this.state.offset);
+    let newOffset = this.state.offset + 1;
+    this.setState({ offset: newOffset });
+    this.props.fetchScrollTracks(this.state.offset);
   }
 
   render () {
@@ -26,7 +35,13 @@ class Stream extends React.Component {
           <li><h1>Stream</h1></li>
         </ul>
         <ul className="tracks">
-          { tracks }
+          <Infinite
+            elementHeight={166}
+            useWindowAsScrollContainer
+            infiniteLoadBeginEdgeOffset={1660}
+             onInfiniteLoad={ this.handleInfiniteLoad.bind(this) }>
+            { tracks }
+          </Infinite>
         </ul>
       </section>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Stream from './stream';
-import { fetchTracks } from '../../actions/tracks_actions';
+import { fetchScrollTracks } from '../../actions/tracks_actions';
 import { receiveCurrentTrack, togglePlay } from '../../actions/current_track_actions';
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTracks: () => dispatch(fetchTracks()),
+  fetchScrollTracks: (pageId) => dispatch(fetchScrollTracks(pageId)),
   receiveCurrentTrack: (track, queue) => dispatch(receiveCurrentTrack(track, queue)),
   togglePlay: () => dispatch(togglePlay())
 });

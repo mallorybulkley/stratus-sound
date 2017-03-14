@@ -36,6 +36,8 @@ gem 'figaro'
 gem 'paperclip', '~> 5.0.0'
 gem 'pg_search'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'annotate'
   gem 'better_errors'
