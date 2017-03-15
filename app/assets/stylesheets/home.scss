@@ -2,10 +2,25 @@
   width: 1200px;
   margin: 0 auto;
   background-color: white;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
+.home {
+  display: flex;
+  padding-top: 25px;
+}
 
-audio {
-  background-color: red;
+.home footer {
+  margin: 16px;
+  border-left: 1px solid #F2F2F2;
+  padding: 0 10px;
+  height: 100%;
+}
+
+footer a {
+  color: #CCC;
+}
+
+footer li {
+  display: inline;
 }

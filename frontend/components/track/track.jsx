@@ -9,6 +9,7 @@ import TrackFormContainer from './track_form_container';
 import UserInfo from './user_info';
 import Waveform from '../waveform/waveform';
 import { trackModalStyle } from '../../util/modal_style.js';
+import Footer from '../footer/footer';
 
 class Track extends React.Component {
   constructor (props) {
@@ -134,6 +135,7 @@ class Track extends React.Component {
             <ul>
               { playlistList }
             </ul>
+            <Footer />
           </section>
         </section>
 
