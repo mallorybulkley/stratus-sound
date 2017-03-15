@@ -1,20 +1,23 @@
 import React from 'react';
 import StreamIndexItem from './stream_index_item';
-import Infinite from 'react-infinite';
+import Waypoint from 'react-waypoint';
 
 class Stream extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { offset: 0 }
+    this.state = { page: 1 }
 
-    this.props.fetchScrollTracks(this.state.pageId);
+    this.handleInfiniteLoad = this.handleInfiniteLoad.bind(this);
+  }
+
+  componentDidMount () {
+    this.props.fetchScrollTracks(this.state.page);
   }
 
   handleInfiniteLoad () {
-    console.log(this.state.offset);
-    let newOffset = this.state.offset + 1;
-    this.setState({ offset: newOffset });
-    this.props.fetchScrollTracks(this.state.offset);
+    this.setState({ page: this.state.page + 1 }, () => {
+      this.props.fetchScrollTracks(this.state.page);
+    });
   }
 
   render () {
@@ -35,14 +38,9 @@ class Stream extends React.Component {
           <li><h1>Stream</h1></li>
         </ul>
         <ul className="tracks">
-          <Infinite
-            elementHeight={166}
-            useWindowAsScrollContainer
-            infiniteLoadBeginEdgeOffset={1660}
-             onInfiniteLoad={ this.handleInfiniteLoad.bind(this) }>
-            { tracks }
-          </Infinite>
+          { tracks }
         </ul>
+        <Waypoint onEnter={ this.handleInfiniteLoad } />
       </section>
     );
   }

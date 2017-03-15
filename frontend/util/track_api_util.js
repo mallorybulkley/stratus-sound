@@ -24,10 +24,10 @@ export const fetchTracks = () => {
   });
 };
 
-export const fetchScrollTracks = (pageOffset) => {
+export const fetchScrollTracks = (page) => {
   return $.ajax({
     url: 'api/tracks',
-    data: pageOffset
+    data: { page }
   });
 };
 
