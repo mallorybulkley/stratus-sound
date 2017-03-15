@@ -19,16 +19,8 @@
 
 .playlist-main .sidebar {
 
-  ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   ul:hover {
     background-color: inherit;
   }
 
-  li {
-    color: #333333;
-  }
 }
