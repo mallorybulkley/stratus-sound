@@ -11,7 +11,7 @@ class Stream extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchScrollTracks(this.state.page);
+    this.props.fetchTracks();
   }
 
   handleInfiniteLoad () {
