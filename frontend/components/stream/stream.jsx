@@ -1,11 +1,23 @@
 import React from 'react';
 import StreamIndexItem from './stream_index_item';
+import Waypoint from 'react-waypoint';
 
 class Stream extends React.Component {
   constructor (props) {
     super(props);
+    this.state = { page: 1 }
 
-    this.props.fetchTracks();
+    this.handleInfiniteLoad = this.handleInfiniteLoad.bind(this);
+  }
+
+  componentDidMount () {
+    this.props.fetchScrollTracks(this.state.page);
+  }
+
+  handleInfiniteLoad () {
+    this.setState({ page: this.state.page + 1 }, () => {
+      this.props.fetchScrollTracks(this.state.page);
+    });
   }
 
   render () {
@@ -28,6 +40,7 @@ class Stream extends React.Component {
         <ul className="tracks">
           { tracks }
         </ul>
+        <Waypoint onEnter={ this.handleInfiniteLoad } />
       </section>
     );
   }

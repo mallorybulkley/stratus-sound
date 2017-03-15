@@ -7,7 +7,7 @@ class Api::TracksController < ApplicationController
       @tracks = Track.joins(:user).includes(:comments).where("user_id = ?", params[:userId]).order(created_at: :desc)
       # @tracks = User.find(params[:userId]).tracks.order(created_at: :desc)
     else
-      @tracks = Track.all.includes(:user, :plays, :comments).order(created_at: :desc)
+      @tracks = Track.includes(:user, :plays, :comments).order(created_at: :desc).page(params[:page]).per(5)
     end
   end
 

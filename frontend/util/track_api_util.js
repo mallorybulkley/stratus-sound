@@ -24,6 +24,13 @@ export const fetchTracks = () => {
   });
 };
 
+export const fetchScrollTracks = (page) => {
+  return $.ajax({
+    url: 'api/tracks',
+    data: { page }
+  });
+};
+
 export const fetchTrack = (id) => {
   return $.ajax({
     url: `api/tracks/${id}`,
