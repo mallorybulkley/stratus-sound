@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 const RightNavLoggedOut = ({openModal}) => (
   <ul className="right">
@@ -15,7 +14,7 @@ const RightNavLoggedOut = ({openModal}) => (
     </li>
 
     <li>
-      <Link to="/upload">Upload</Link>
+      <a onClick={() => openModal("login")}>Upload</a>
     </li>
   </ul>
 );
