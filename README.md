@@ -80,4 +80,4 @@ Stratus Sound currently uses pg_search to allow users to search for tracks, user
 I plan to allow users to follow their favorite users. The **Stream** will then reflect updates from followed users, while a separate **Discover** feed will allow users to explore and find tracks from other users.
 
 ### ~~Pagination / infinite scroll~~ Completed
-Currently viewing a user's page will show all of their tracks and playlists on one page. However, with a larger number of tracks, this will cause the app to become too slow. I plan to implement pagination or infinite scroll to load data in more manageable batches.
+Currently viewing your stream will show all tracks on one page. However, with a larger number of tracks, this will cause the app to become too slow. I plan to implement pagination or infinite scroll to load data in more manageable batches.
