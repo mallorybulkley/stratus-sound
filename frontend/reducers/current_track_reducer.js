@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_TRACK, TOGGLE_PLAY } from '../actions/current_track_actions';
+import { SCROLL_TRACKS } from '../actions/tracks_actions';
 
 const CurrentTrackReducer = (state = { track: null, playing: false, queue: [] }, action) => {
   Object.freeze(state);
@@ -12,6 +13,8 @@ const CurrentTrackReducer = (state = { track: null, playing: false, queue: [] },
       }
     case TOGGLE_PLAY:
       return Object.assign({}, state, { playing: !state.playing });
+    case SCROLL_TRACKS:
+      return Object.assign({}, state, { queue: state.queue.concat(action.tracks) });
     default:
       return state;
   }
