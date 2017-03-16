@@ -31,6 +31,7 @@ module StratusSound
 
     config.paperclip_defaults = {
       :storage => :s3,
+      :s3_protocol => :https,
       :s3_credentials => {
         :bucket => ENV["s3_bucket"],
         :access_key_id => ENV["s3_access_key_id"],
