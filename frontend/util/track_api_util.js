@@ -78,3 +78,17 @@ export const recordPlay = (trackId) => {
     url: `/api/tracks/${trackId}/play`
   });
 }
+
+export const recordLike = (trackId) => {
+  return $.ajax({
+    type: 'POST',
+    url: `/api/tracks/${trackId}/like`
+  });
+}
+
+export const unlike = (trackId) => {
+  return $.ajax({
+    type: 'DELETE',
+    url: `/api/tracks/${trackId}/like`
+  });
+}

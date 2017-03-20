@@ -57,3 +57,15 @@ export const deletePlaylistTrack = (playlistId, trackId) => (dispatch) => {
     .then(playlist => dispatch(receivePlaylist(playlist)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 };
+
+export const recordLike = (playlistId) => (dispatch) => {
+  return PlaylistApiUtil.recordLike(playlistId)
+    .then(playlist => dispatch(receivePlaylist(playlist)),
+      data => dispatch(receiveErrors(data.responseJSON.errors)))
+};
+
+export const unlike = (playlistId) => (dispatch) => {
+  return PlaylistApiUtil.unlike(playlistId)
+    .then(playlist => dispatch(receivePlaylist(playlist)),
+      data => dispatch(receiveErrors(data.responseJSON.errors)))
+};

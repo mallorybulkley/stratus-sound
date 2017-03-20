@@ -7,10 +7,17 @@ Rails.application.routes.draw do
     resources :tracks, only: [:index, :create, :show, :destroy, :update] do
       member do
         post :play
+        post :like
+        delete :like
       end
     end
     resources :comments, only: [:create, :destroy, :index]
-    resources :playlists, only: [:index, :create, :show, :destroy, :update]
+    resources :playlists, only: [:index, :create, :show, :destroy, :update] do
+      member do
+        post :like
+        delete :like
+      end
+    end
     resources :searches, only: [:index]
   end
 end

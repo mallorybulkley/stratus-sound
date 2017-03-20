@@ -44,3 +44,15 @@ export const savePeaks = (track) => (dispatch) => (
     .then(track => dispatch(receiveTrack(track)),
       data => dispatch(receiveErrors(data.responseJSON.errors)))
 );
+
+export const recordLike = (trackId) => (dispatch) => {
+  return TrackApiUtil.recordLike(trackId)
+    .then(track => dispatch(receiveTrack(track)),
+      data => dispatch(receiveErrors(data.responseJSON.errors)))
+};
+
+export const unlike = (trackId) => (dispatch) => {
+  return TrackApiUtil.unlike(trackId)
+    .then(track => dispatch(receiveTrack(track)),
+      data => dispatch(receiveErrors(data.responseJSON.errors)))
+};

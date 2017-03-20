@@ -54,3 +54,17 @@ export const deletePlaylistTrack = (playlistId, trackId) => {
     }
   })
 }
+
+export const recordLike = (playlistId) => {
+  return $.ajax({
+    type: 'POST',
+    url: `/api/playlists/${playlistId}/like`
+  });
+}
+
+export const unlike = (playlistId) => {
+  return $.ajax({
+    type: 'DELETE',
+    url: `/api/playlists/${playlistId}/like`
+  });
+}

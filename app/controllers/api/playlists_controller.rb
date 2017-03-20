@@ -48,4 +48,21 @@ class Api::PlaylistsController < ApplicationController
       render json: { errors: @playlist.errors.full_messages }, status: 422
     end
   end
+
+  def like
+    Like.create(user: current_user, likeable_id: params[:id], likeable_type: 'Playlist')
+
+    render :show
+  end
+
+  def unlike
+    @playlist = Playlist.find(params[:id])
+    like = Like.find_by(user: current_user, likeable_id: params[:id], likeable_type: 'Playlist')
+    
+    if like.destroy
+      render :show
+    else
+      render json: { errors: like.errors.full_messages }, status: 422
+    end
+  end
 end

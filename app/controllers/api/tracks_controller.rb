@@ -48,6 +48,24 @@ class Api::TracksController < ApplicationController
     render json: {}, status: 200
   end
 
+  def like
+    @track = Track.find(params[:id])
+    Like.create(user: current_user, likeable_id: params[:id], likeable_type: 'Track')
+
+    render :show
+  end
+
+  def unlike
+    @track = Track.find(params[:id])
+    like = Like.find_by(user: current_user, likeable_id: params[:id], likeable_type: 'Track')
+
+    if like.destroy
+      render :show
+    else
+      render json: { errors: like.errors.full_messages }, status: 422
+    end
+  end
+
   private
 
   def track_params
