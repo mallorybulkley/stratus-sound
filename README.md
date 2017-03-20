@@ -18,6 +18,7 @@ Stratus Sound is a single-page, full stack web application for streaming and sha
 * See all of a user's tracks and playlists on their page
 * Secure account creation and login
 * See waveform visualizations for each song
+* Infinite scroll
 
 ### Technologies used
 * React.js
