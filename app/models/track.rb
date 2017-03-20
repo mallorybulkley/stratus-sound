@@ -16,6 +16,7 @@ class Track < ActiveRecord::Base
   has_many :playlist_tracks
   has_many :playlists, through: :playlist_tracks
   has_many :plays
+  has_many :likes, as: :likeable
 
   # TODO: add genre search
   include PgSearch
