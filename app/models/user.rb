@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :playlists
   has_many :plays
+  has_many :likes
 
   include PgSearch
   multisearchable against: [:username]
