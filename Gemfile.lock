@@ -69,6 +69,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
+    crass (1.0.3)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -100,8 +101,9 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
-    loofah (2.0.3)
-      nokogiri (>= 1.8.1)
+    loofah (2.1.1)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
@@ -227,4 +229,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
