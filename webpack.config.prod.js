@@ -4,7 +4,7 @@ var webpack = require("webpack");
 module.exports = {
   entry: './frontend/stratus_sound.jsx',
   output: {
-    path: 'app/assets/javascripts',
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js',
   },
   plugins:[
