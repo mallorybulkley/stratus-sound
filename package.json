@@ -1,7 +1,7 @@
 {
   "name": "stratus-sound",
   "version": "1.0.0",
-  "description": "[Stratus Sound][www.stratus-sound.us]",
+  "description": "[Stratus Sound][www.stratus-sound.herokuapp.com]",
   "main": "index.js",
   "directories": {
     "doc": "docs"
