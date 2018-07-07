@@ -3,7 +3,9 @@ import { Link } from 'react-router';
 import Waveform from '../waveform/waveform';
 
 const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, currentTrack }) => {
-  if (!track.peaks) return (<div></div>);
+  if (!track.peaks) {
+    return (<div></div>);
+  }
 
   const handleClick = () => {
     if (currentTrack) {
@@ -11,11 +13,13 @@ const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curren
     } else {
       receiveCurrentTrack(track, queue);
     }
-  }
+  };
 
-  const togglePlayButton = (currentTrack && currentTrack.playing) ?
-    (<i className="fa fa-pause" aria-hidden="true"/>) : ( <i className="fa fa-play" aria-hidden="true"/> );
-
+  const togglePlayButton = (currentTrack && currentTrack.playing) ? (
+    <i className="fa fa-pause" aria-hidden="true"/>
+  ) : (
+    <i className="fa fa-play" aria-hidden="true"/>
+  );
 
   return (
     <ul className="stream-tracks">
@@ -28,8 +32,6 @@ const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curren
       <li className="small-play" onClick={ handleClick }>
         { togglePlayButton }
       </li>
-
-
 
       <ul>
         <li>
@@ -50,7 +52,6 @@ const StreamIndexItem = ({ track, queue, receiveCurrentTrack, togglePlay, curren
         <i className="fa fa-comment" aria-hidden="true"/>
         { track.comment_count }
       </div>
-
 
       <a onClick={ handleClick }>
         <Waveform track={ track } width="500" />

@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 import { profileModalStyle } from '../../util/modal_style.js';
 import PlaylistsIndex from './playlists_index';
 import ProfileFormContainer from './profile_form_container';
-import TracksIndex from './tracks_index'
-import Footer from '../footer/footer'
+import TracksIndex from './tracks_index';
+import Footer from '../footer/footer';
 
 class UserProfile extends React.Component {
   constructor (props) {
@@ -30,7 +30,7 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.params.userId != this.props.user.id) {
+    if (nextProps.params.userId !== this.props.user.id) {
       this.props.fetchUser();
       this.props.fetchUserTracks();
       this.props.fetchUserPlaylists();
@@ -114,7 +114,7 @@ class UserProfile extends React.Component {
         </Modal>
 
       </section>
-    )
+    );
   }
 }
 
