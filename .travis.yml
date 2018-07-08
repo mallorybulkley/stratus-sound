@@ -1,6 +1,16 @@
 language: ruby
+cache:
+  bundler: true
+  directories:
+  - node_modules
 rvm:
-  -2.3.1
+  - 2.3.1
 script:
-  - npm run test
+  - npm install
+  - npm run test frontend/
+  - bin/rake db:test:prepare
   - bin/rake
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database StratusSound_test;' -U postgres
