@@ -1,4 +1,4 @@
-# Stratus Sound
+# Stratus Sound [![Build Status](https://travis-ci.com/mallorybulkley/stratus-sound.svg?branch=master)](https://travis-ci.com/mallorybulkley/stratus-sound)
 [Stratus Sound live][heroku]
 
 [heroku]: http://stratus-sound.herokuapp.com/
